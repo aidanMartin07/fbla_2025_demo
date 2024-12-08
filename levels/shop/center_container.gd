@@ -1,12 +1,6 @@
-extends Node
+extends CenterContainer
 
-
-var inventory: Dictionary = {
-	"cash": 0,
-	"lemon": 0,
-	"coffee_ground": 0,
-	"muffin": 0
-}
+@onready var label: Label = $Label
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,5 +10,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	#print(inventory["lemon"])
+	label.text = "Money: " + str(PlayerManager.inventory["cash"])

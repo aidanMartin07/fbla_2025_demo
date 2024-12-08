@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cw01yarma3yxk"]
+[gd_scene load_steps=10 format=4 uid="uid://cw01yarma3yxk"]
 
 [ext_resource type="TileSet" uid="uid://b64mknn64pk28" path="res://assets/tilemaps/road_tileset.tres" id="1_44axy"]
 [ext_resource type="Texture2D" uid="uid://dn6brimjk660y" path="res://assets/tilemaps/markets.png" id="2_ex0ns"]
@@ -915,6 +915,9 @@ sources/0 = SubResource("TileSetAtlasSource_gbj2q")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1ghs"]
 size = Vector2(34, 75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh6mk"]
+size = Vector2(32, 54)
+
 [node name="World" type="Node2D"]
 
 [node name="Ground" type="TileMapLayer" parent="."]
@@ -933,17 +936,27 @@ position = Vector2(-16, -32)
 [node name="TransitionManager" type="Node2D" parent="."]
 script = ExtResource("4_4q04i")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MarketArea" type="Area2D" parent="."]
 position = Vector2(-17, -98)
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarketArea"]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_p1ghs")
+
+[node name="ShopArea" type="Area2D" parent="."]
+position = Vector2(-336, -129)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopArea"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_hh6mk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_rc63r")
 
-[connection signal="body_entered" from="Area2D" to="TransitionManager" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="MarketArea" to="TransitionManager" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="MarketArea" to="TransitionManager" method="_on_market_area_body_exited"]
+[connection signal="body_entered" from="ShopArea" to="TransitionManager" method="_on_shop_area_body_entered"]
+[connection signal="body_exited" from="ShopArea" to="TransitionManager" method="_on_shop_area_body_exited"]
 
 [editable path="Player"]

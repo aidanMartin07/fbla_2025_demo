@@ -4,7 +4,7 @@ class_name Player
 
 @onready var animated_sprite_2d: AnimationController = $AnimatedSprite2D
 
-const SPEED: float = 7500.0
+const SPEED: float = 9000.0
 #const JUMP_VELOCITY = -400.0
 	
 
