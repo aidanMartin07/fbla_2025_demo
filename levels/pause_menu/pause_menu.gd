@@ -3,6 +3,8 @@ extends Control
 func resume():
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
+	PlayerManager.pause_menu_instance = false
+	self.queue_free()
 	
 func pause():
 	get_tree().paused = true
@@ -15,7 +17,9 @@ func testEsc():
 		else:
 			resume()
 
-
+func _process(delta: float) -> void:
+	if(Input.is_action_just_pressed("esc")):
+		resume()
 
 
 func _on_resume_pressed() -> void:

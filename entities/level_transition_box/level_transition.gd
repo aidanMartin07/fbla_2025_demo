@@ -1,4 +1,4 @@
-extends GridContainer
+extends Control
 
 var current_level: String
 var next_level: String = "res://levels/market/market.tscn"
@@ -22,4 +22,6 @@ func _process(delta: float) -> void:
 
 func _on_button_button_up() -> void:
 	load_next_scene(self.next_level)
+	
+	
 	print(self.next_level)

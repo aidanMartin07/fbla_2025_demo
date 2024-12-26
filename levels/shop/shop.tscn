@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://c3q5nvmopu2n7"]
 
 [ext_resource type="TileSet" uid="uid://2tcyrk04i7aa" path="res://assets/tilemaps/indoor_basic.tres" id="1_gjj8n"]
-[ext_resource type="Script" path="res://levels/shop/buttons.gd" id="2_7clu0"]
+[ext_resource type="Script" path="res://levels/shop/shop_menu.gd" id="2_l84y0"]
 [ext_resource type="Script" path="res://levels/shop/center_container.gd" id="3_ni5wi"]
 
 [node name="Shop" type="Node2D"]
@@ -21,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("2_l84y0")
 
 [node name="Label" type="Label" parent="CanvasLayer/ShopMenu"]
 layout_mode = 1
@@ -42,13 +43,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -136.5
+offset_left = -157.0
 offset_top = -15.5
-offset_right = 136.5
+offset_right = 157.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_7clu0")
 
 [node name="Lemon" type="Button" parent="CanvasLayer/ShopMenu/HBoxContainer"]
 layout_mode = 2
@@ -61,6 +61,10 @@ text = "Coffee Grounds"
 [node name="Muffin" type="Button" parent="CanvasLayer/ShopMenu/HBoxContainer"]
 layout_mode = 2
 text = "Muffins"
+
+[node name="Exit" type="Button" parent="CanvasLayer/ShopMenu/HBoxContainer"]
+layout_mode = 2
+text = "Exit"
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/ShopMenu"]
 layout_mode = 1
@@ -81,6 +85,7 @@ script = ExtResource("3_ni5wi")
 layout_mode = 2
 text = "Money: "
 
-[connection signal="pressed" from="CanvasLayer/ShopMenu/HBoxContainer/Lemon" to="CanvasLayer/ShopMenu/HBoxContainer" method="_on_lemon_pressed"]
-[connection signal="pressed" from="CanvasLayer/ShopMenu/HBoxContainer/Coffee" to="CanvasLayer/ShopMenu/HBoxContainer" method="_on_coffee_pressed"]
-[connection signal="pressed" from="CanvasLayer/ShopMenu/HBoxContainer/Muffin" to="CanvasLayer/ShopMenu/HBoxContainer" method="_on_muffin_pressed"]
+[connection signal="button_up" from="CanvasLayer/ShopMenu/HBoxContainer/Lemon" to="CanvasLayer/ShopMenu" method="_on_lemon_button_up"]
+[connection signal="button_up" from="CanvasLayer/ShopMenu/HBoxContainer/Coffee" to="CanvasLayer/ShopMenu" method="_on_coffee_button_up"]
+[connection signal="button_up" from="CanvasLayer/ShopMenu/HBoxContainer/Muffin" to="CanvasLayer/ShopMenu" method="_on_muffin_button_up"]
+[connection signal="button_down" from="CanvasLayer/ShopMenu/HBoxContainer/Exit" to="CanvasLayer/ShopMenu" method="_on_exit_button_down"]
