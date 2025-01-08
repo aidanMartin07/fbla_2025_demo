@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=4 uid="uid://c3q5nvmopu2n7"]
+[gd_scene load_steps=8 format=4 uid="uid://c3q5nvmopu2n7"]
 
 [ext_resource type="TileSet" uid="uid://2tcyrk04i7aa" path="res://assets/tilemaps/indoor_basic.tres" id="1_gjj8n"]
-[ext_resource type="Script" path="res://levels/shop/shop_menu.gd" id="2_l84y0"]
-[ext_resource type="Script" path="res://levels/shop/center_container.gd" id="3_ni5wi"]
+[ext_resource type="Script" path="res://levels/shop/shop_container.gd" id="2_c360s"]
+[ext_resource type="Texture2D" uid="uid://b5tprctys2v8t" path="res://assets/icons/coffee.png" id="2_hq8i8"]
+[ext_resource type="Texture2D" uid="uid://i0xyhjy3uh38" path="res://assets/icons/lemonade.png" id="3_50sla"]
+[ext_resource type="Texture2D" uid="uid://cwhxqqbwpr0no" path="res://assets/icons/steven.png" id="4_5bac7"]
+[ext_resource type="Texture2D" uid="uid://cudf48ji3omp6" path="res://assets/icons/money.png" id="5_ty2fj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2xj01"]
 
 [node name="Shop" type="Node2D"]
 
@@ -12,80 +17,92 @@ tile_set = ExtResource("1_gjj8n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ShopMenu" type="Control" parent="CanvasLayer"]
+[node name="ShopContainer" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("2_l84y0")
+script = ExtResource("2_c360s")
 
-[node name="Label" type="Label" parent="CanvasLayer/ShopMenu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -24.0
+[node name="Background" type="ColorRect" parent="CanvasLayer/ShopContainer"]
+material = SubResource("CanvasItemMaterial_2xj01")
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 1024.0
+offset_bottom = 512.0
+color = Color(0.099986, 0.099986, 0.099986, 0.776471)
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/ShopContainer"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 896.0
+offset_bottom = 448.0
+theme_override_constants/h_separation = 130
+theme_override_constants/v_separation = 40
+columns = 2
+
+[node name="CoffeeIcon" type="TextureRect" parent="CanvasLayer/ShopContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_hq8i8")
+expand_mode = 5
+
+[node name="CoffeeButton" type="Button" parent="CanvasLayer/ShopContainer/GridContainer"]
+layout_mode = 2
+text = "Buy"
+
+[node name="LemonadeIcon" type="TextureRect" parent="CanvasLayer/ShopContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_50sla")
+
+[node name="LemonButton" type="Button" parent="CanvasLayer/ShopContainer/GridContainer"]
+layout_mode = 2
+text = "Buy"
+
+[node name="StevenIcon" type="TextureRect" parent="CanvasLayer/ShopContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_5bac7")
+expand_mode = 4
+
+[node name="StevenButton" type="Button" parent="CanvasLayer/ShopContainer/GridContainer"]
+layout_mode = 2
+text = "Buy"
+
+[node name="MoneyIcon" type="TextureRect" parent="CanvasLayer/ShopContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_ty2fj")
+expand_mode = 4
+
+[node name="CashLabel" type="Label" parent="CanvasLayer/ShopContainer/GridContainer"]
+layout_mode = 2
+text = "Cash"
+
+[node name="Header" type="ColorRect" parent="CanvasLayer/ShopContainer"]
+layout_mode = 0
+offset_left = 128.0
 offset_top = 48.0
-offset_right = 28.0
-offset_bottom = 71.0
-grow_horizontal = 2
-text = "Shop"
-horizontal_alignment = 1
+offset_right = 1024.0
+offset_bottom = 88.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 0.760784)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ShopMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -157.0
-offset_top = -15.5
-offset_right = 157.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HeaderTitle" type="Label" parent="CanvasLayer/ShopContainer"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 56.0
+offset_right = 817.0
+offset_bottom = 72.0
+text = "we over hear contributing to our country's GDP hell yeah"
 
-[node name="Lemon" type="Button" parent="CanvasLayer/ShopMenu/HBoxContainer"]
-layout_mode = 2
-text = "Lemons"
-
-[node name="Coffee" type="Button" parent="CanvasLayer/ShopMenu/HBoxContainer"]
-layout_mode = 2
-text = "Coffee Grounds"
-
-[node name="Muffin" type="Button" parent="CanvasLayer/ShopMenu/HBoxContainer"]
-layout_mode = 2
-text = "Muffins"
-
-[node name="Exit" type="Button" parent="CanvasLayer/ShopMenu/HBoxContainer"]
-layout_mode = 2
+[node name="Exit" type="Button" parent="CanvasLayer/ShopContainer"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 text = "Exit"
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/ShopMenu"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = -107.0
-offset_right = 31.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("3_ni5wi")
-
-[node name="Label" type="Label" parent="CanvasLayer/ShopMenu/CenterContainer"]
-layout_mode = 2
-text = "Money: "
-
-[connection signal="button_up" from="CanvasLayer/ShopMenu/HBoxContainer/Lemon" to="CanvasLayer/ShopMenu" method="_on_lemon_button_up"]
-[connection signal="button_up" from="CanvasLayer/ShopMenu/HBoxContainer/Coffee" to="CanvasLayer/ShopMenu" method="_on_coffee_button_up"]
-[connection signal="button_up" from="CanvasLayer/ShopMenu/HBoxContainer/Muffin" to="CanvasLayer/ShopMenu" method="_on_muffin_button_up"]
-[connection signal="button_down" from="CanvasLayer/ShopMenu/HBoxContainer/Exit" to="CanvasLayer/ShopMenu" method="_on_exit_button_down"]
+[connection signal="pressed" from="CanvasLayer/ShopContainer/GridContainer/CoffeeButton" to="CanvasLayer/ShopContainer" method="_on_coffee_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShopContainer/GridContainer/LemonButton" to="CanvasLayer/ShopContainer" method="_on_lemon_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShopContainer/GridContainer/StevenButton" to="CanvasLayer/ShopContainer" method="_on_steven_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShopContainer/Exit" to="CanvasLayer/ShopContainer" method="_on_exit_pressed"]

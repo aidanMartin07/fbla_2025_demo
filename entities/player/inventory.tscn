@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0y5y7xw4ev1k"]
+[gd_scene load_steps=6 format=3 uid="uid://d0y5y7xw4ev1k"]
 
 [ext_resource type="Script" path="res://entities/player/inventory.gd" id="1_wjth3"]
+[ext_resource type="Texture2D" uid="uid://cudf48ji3omp6" path="res://assets/icons/money.png" id="2_466m0"]
 [ext_resource type="Texture2D" uid="uid://bn6c1pwpv1qw0" path="res://assets/steve.jpg" id="2_inwka"]
+[ext_resource type="Texture2D" uid="uid://i0xyhjy3uh38" path="res://assets/icons/lemonade.png" id="3_f5eqd"]
+[ext_resource type="Texture2D" uid="uid://b5tprctys2v8t" path="res://assets/icons/coffee.png" id="4_kxk1v"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -49,7 +52,7 @@ text = "Money:"
 
 [node name="Steve" type="TextureRect" parent="Panel/GridContainer"]
 layout_mode = 2
-texture = ExtResource("2_inwka")
+texture = ExtResource("2_466m0")
 expand_mode = 2
 
 [node name="Lemons" type="Label" parent="Panel/GridContainer"]
@@ -59,7 +62,7 @@ text = "Lemons:
 
 [node name="Steve2" type="TextureRect" parent="Panel/GridContainer"]
 layout_mode = 2
-texture = ExtResource("2_inwka")
+texture = ExtResource("3_f5eqd")
 expand_mode = 2
 
 [node name="Coffee" type="Label" parent="Panel/GridContainer"]
@@ -68,7 +71,7 @@ text = "Coffee: "
 
 [node name="Steve3" type="TextureRect" parent="Panel/GridContainer"]
 layout_mode = 2
-texture = ExtResource("2_inwka")
+texture = ExtResource("4_kxk1v")
 expand_mode = 2
 
 [node name="Muffins" type="Label" parent="Panel/GridContainer"]

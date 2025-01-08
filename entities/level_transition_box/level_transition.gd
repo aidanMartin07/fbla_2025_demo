@@ -24,4 +24,4 @@ func _on_button_button_up() -> void:
 	load_next_scene(self.next_level)
 	
 	
-	print(self.next_level)
+	#print(self.next_level)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdn0i8vtasbna"]
+
+[ext_resource type="Script" path="res://levels/market/order_icon.gd" id="1_sm538"]
+
+[node name="OrderIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sm538")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
