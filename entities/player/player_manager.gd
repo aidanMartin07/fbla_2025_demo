@@ -9,13 +9,25 @@ var inventory: Dictionary = {
 	"muffin": 0
 }
 
+var upgrades: Dictionary = {
+	"coffee": 1,
+	"lemonade": 1,
+	"muffin": 1,
+}
+
+var completed_crafts: Dictionary = {
+	"coffee": 0,
+	"lemonade": 0,
+	"muffin": 0,
+}
+
 var pause_menu = preload("res://levels/pause_menu/pause_menu.tscn")
 var pause_menu_instance: bool = false
 
 #holds position values for last player position in town before entering new building
 var last_town_pos: Dictionary = {
 	"x": 16,
-	"y": -32,
+	"y": -248,
 }
 
 #determines if there is a instance of player node / sprite

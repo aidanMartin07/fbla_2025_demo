@@ -14,7 +14,7 @@ script = ExtResource("1_xi86u")
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
 offset_right = 1152.0
-offset_bottom = 613.0
+offset_bottom = 649.0
 size_flags_vertical = 3
 color = Color(0, 0.660481, 0.661469, 1)
 

@@ -8,6 +8,7 @@ extends Node2D
 @onready var player_body: Player = $"../Player/CharacterBody2D"
 
 
+
 var transition_node = preload("res://entities/level_transition_box/level_transition_box.tscn")
 
 var levels: Dictionary = {
@@ -32,7 +33,7 @@ func load_transition_button(next_level: String):
 	player.get_node("CanvasLayer").add_child(button)
 	
 	#PlayerManager.last_town_pos["x"] = player_body.position.x
-	#PlayerManager.last_town_pos["y"] = player_body.position.y
+	#PlayerManager.last_town_pos["y"] = player_body.position.y 
 	
 
 func unload_transition_button():

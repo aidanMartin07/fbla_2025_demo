@@ -6,7 +6,7 @@ class_name Player
 @onready var coords: Label = $"../CanvasLayer/coords"
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 
-const SPEED: float = 9000.0
+const SPEED: float = 11000.0
 #const JUMP_VELOCITY = -400.0
 
 var inventory = preload("res://entities/player/inventory.tscn")
