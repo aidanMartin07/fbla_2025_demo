@@ -13,7 +13,6 @@ var walking: bool = false
 
 var random = RandomNumberGenerator.new()
 
-
 var position_nodes: Array = [
 	Vector2(-256,-620),
 	Vector2(128,-620),
