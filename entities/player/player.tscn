@@ -283,6 +283,9 @@ size = Vector2(20, 17)
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 collision_layer = 7
 collision_mask = 3
 script = ExtResource("1_pyydl")
@@ -307,3 +310,4 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("4_763m8")
 text = "X:"
+metadata/_edit_use_anchors_ = true

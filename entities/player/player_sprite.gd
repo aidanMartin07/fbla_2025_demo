@@ -5,6 +5,7 @@ class_name Player
 @onready var animated_sprite_2d: AnimationController = $AnimatedSprite2D
 @onready var coords: Label = $"../CanvasLayer/coords"
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
+@onready var player: Node2D = $Player
 
 const SPEED: float = 11000.0
 #const JUMP_VELOCITY = -400.0
@@ -48,5 +49,6 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play_movement_animation(velocity)
 	else:
 		animated_sprite_2d.play_idle_animation()
-
+	
+	
 	move_and_slide()

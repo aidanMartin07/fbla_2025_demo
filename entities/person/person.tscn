@@ -1,8 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://bf0qjpbj6w6dj"]
+[gd_scene load_steps=42 format=3 uid="uid://bf0qjpbj6w6dj"]
 
 [ext_resource type="Script" path="res://entities/person/person_movement.gd" id="1_3lc66"]
 [ext_resource type="Texture2D" uid="uid://ks173ef84q4i" path="res://assets/characters/simple_npc.png" id="1_xtshc"]
-[ext_resource type="Script" path="res://entities/player/player_animation_controller.gd" id="2_5xf7d"]
+[ext_resource type="Script" path="res://entities/person/person_sprite_2d.gd" id="3_iujey"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_obglv"]
 atlas = ExtResource("1_xtshc")
@@ -35,6 +35,22 @@ region = Rect2(0, 0, 32, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_82pgm"]
 atlas = ExtResource("1_xtshc")
 region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ebo"]
+atlas = ExtResource("1_xtshc")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg71s"]
+atlas = ExtResource("1_xtshc")
+region = Rect2(448, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0bkb"]
+atlas = ExtResource("1_xtshc")
+region = Rect2(160, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1cxe"]
+atlas = ExtResource("1_xtshc")
+region = Rect2(544, 48, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hxque"]
 atlas = ExtResource("1_xtshc")
@@ -184,6 +200,23 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_n0ebo")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xg71s")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_m0bkb")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_p1cxe")
+}],
+"loop": true,
+"name": &"side_to_side",
+"speed": 4.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hxque")
 }, {
@@ -282,6 +315,9 @@ size = Vector2(20, 18)
 [node name="Person" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -289,11 +325,15 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_3lc66")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_p86ey")
-animation = &"walk_up"
-script = ExtResource("2_5xf7d")
+animation = &"side_to_side"
+script = ExtResource("3_iujey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_uyhd3")
 
@@ -301,7 +341,6 @@ shape = SubResource("RectangleShape2D_uyhd3")
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
-wait_time = 0.1
-autostart = true
 
+[connection signal="navigation_finished" from="CharacterBody2D/NavigationAgent2D" to="CharacterBody2D" method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
