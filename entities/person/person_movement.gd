@@ -16,7 +16,9 @@ var position_nodes: Array = [
 	Vector2(-256,-620),
 	Vector2(128,-620),
 	Vector2(128,-384),
-	Vector2(-256,-384)
+	Vector2(-256,-384),
+	Vector2(676, -28), #Northern Subway Staircase
+	Vector2(-709,420), #Southern Subway Staircase
 ]
 
 var walking_to: Vector2

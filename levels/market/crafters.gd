@@ -1,12 +1,21 @@
 extends Control
 
+#Current Crafters
+var coffee_crafting: bool = false
+var bread_crafting: bool = false
+var croissant_crafting: bool = false
+
+
+
+
+var muffin_crafting: bool = false 
+var lemonade_crafting: bool = false
+
 @onready var coffee_progress: ProgressBar = $CoffeeProgress
 @onready var lemonade_progress: ProgressBar = $LemonadeProgress
 @onready var muffin_progress: ProgressBar = $MuffinProgress
 
-var coffee_crafting: bool = false
-var lemonade_crafting: bool = false
-var muffin_crafting: bool = false
+
 
 var coffee_crafting_progress: int = 0
 var lemonade_crafting_progress: int = 0 
