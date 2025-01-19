@@ -4,7 +4,6 @@ extends CharacterBody2D
 const SPEED = 6000.0
 
 
-@export var player:Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var animated_sprite_2d: PersonAnimationController = $AnimatedSprite2D
 

@@ -313,11 +313,9 @@ animations = [{
 size = Vector2(20, 18)
 
 [node name="Person" type="Node2D"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -325,15 +323,11 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_3lc66")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-z_index = 1
-y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_p86ey")
-animation = &"side_to_side"
+animation = &"walk_right"
 script = ExtResource("3_iujey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-z_index = 1
-y_sort_enabled = true
 position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_uyhd3")
 
@@ -341,6 +335,10 @@ shape = SubResource("RectangleShape2D_uyhd3")
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1, 2)
+scale = Vector2(1.3, 2.2)
 
 [connection signal="navigation_finished" from="CharacterBody2D/NavigationAgent2D" to="CharacterBody2D" method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

@@ -11,14 +11,14 @@ const MOVEMENT_TO_IDLE = {
 
 
 func play_movement_animation(velocity: Vector2):
-	if(velocity.x > 0 and velocity.y == 0):
+	if(velocity.x > 0 ):
 		play("walk_right")
-	elif(velocity.x < 0 and velocity.y == 0):
+	elif(velocity.x < 0 ):
 		play("walk_left")
 	
-	if(velocity.y > 0):
+	if(velocity.y > 50):
 		play("walk_down")
-	elif(velocity.y < 0):
+	elif(velocity.y < -50):
 		play("walk_up")
 	
 
