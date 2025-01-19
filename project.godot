@@ -80,6 +80,10 @@ tab={
 2d_physics/layer_3="Decoration"
 2d_physics/layer_4="Entrances"
 
+[navigation]
+
+2d/default_edge_connection_margin=16.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
