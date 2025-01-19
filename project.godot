@@ -24,6 +24,10 @@ TransitionManager="*res://managers/transition_manager.gd"
 
 window/subwindows/embed_subwindows=false
 
+[dotnet]
+
+project/assembly_name="coffe"
+
 [global_group]
 
 Player=""
