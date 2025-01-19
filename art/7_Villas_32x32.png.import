@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwlexn21v7wkn"
-path="res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"
+uid="uid://cmdj6vv6a14rg"
+path="res://.godot/imported/7_Villas_32x32.png-7deb773576ccaef9355cecd6cff215a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/flour.png"
-dest_files=["res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"]
+source_file="res://art/7_Villas_32x32.png"
+dest_files=["res://.godot/imported/7_Villas_32x32.png-7deb773576ccaef9355cecd6cff215a9.ctex"]
 
 [params]
 

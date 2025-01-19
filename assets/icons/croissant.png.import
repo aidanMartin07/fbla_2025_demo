@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwlexn21v7wkn"
-path="res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"
+uid="uid://cgs0vwnoajkk8"
+path="res://.godot/imported/croissant.png-644a80825c6bbdd509dd8ed794fd9c18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/flour.png"
-dest_files=["res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"]
+source_file="res://assets/icons/croissant.png"
+dest_files=["res://.godot/imported/croissant.png-644a80825c6bbdd509dd8ed794fd9c18.ctex"]
 
 [params]
 

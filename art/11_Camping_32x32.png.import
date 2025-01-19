@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwlexn21v7wkn"
-path="res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"
+uid="uid://1e8o4nw8r7sm"
+path="res://.godot/imported/11_Camping_32x32.png-dfda589862097280f949a65e0fab35b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/flour.png"
-dest_files=["res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"]
+source_file="res://art/11_Camping_32x32.png"
+dest_files=["res://.godot/imported/11_Camping_32x32.png-dfda589862097280f949a65e0fab35b5.ctex"]
 
 [params]
 

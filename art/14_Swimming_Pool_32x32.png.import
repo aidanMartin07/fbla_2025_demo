@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwlexn21v7wkn"
-path="res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"
+uid="uid://brm5laoerkvet"
+path="res://.godot/imported/14_Swimming_Pool_32x32.png-148a37e8f271fe71d7150871e02049bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/flour.png"
-dest_files=["res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"]
+source_file="res://art/14_Swimming_Pool_32x32.png"
+dest_files=["res://.godot/imported/14_Swimming_Pool_32x32.png-148a37e8f271fe71d7150871e02049bc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwlexn21v7wkn"
-path="res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"
+uid="uid://cwilv4a1tycnm"
+path="res://.godot/imported/bakery_clear.png-c3dcf886be36a24e66a4ef4ea76f9070.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/flour.png"
-dest_files=["res://.godot/imported/flour.png-6621cae11bfc77a5f2c2387aef43a95f.ctex"]
+source_file="res://art/bakery_clear.png"
+dest_files=["res://.godot/imported/bakery_clear.png-c3dcf886be36a24e66a4ef4ea76f9070.ctex"]
 
 [params]
 
