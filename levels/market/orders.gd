@@ -4,7 +4,7 @@ extends Control
 @onready var order_timer: Timer = $OrderTimer
 
 var order_queue: Array = []
-var order_list: Array = ["coffee", "lemonade", "muffin"]
+var order_list: Array = ["coffee", "iced_coffee", "bread_roll", "croissant"]
 var current_order_amount: int
 
 var order_icon = preload("res://levels/market/order_icon.tscn")
@@ -24,7 +24,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("up")):
-		var order_name = order_list[int(rand.randf_range(0,3))]
+		var order_name = order_list.pick_random()
 		add_new_order(order_name)
 		
 

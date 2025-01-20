@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://d3yf8sa6e7l7s"]
+[gd_scene load_steps=9 format=4 uid="uid://d3yf8sa6e7l7s"]
 
 [ext_resource type="TileSet" uid="uid://2tcyrk04i7aa" path="res://assets/tilemaps/indoor_basic.tres" id="1_nbryx"]
 [ext_resource type="Script" path="res://levels/market/control.gd" id="2_5x6aq"]
 [ext_resource type="Texture2D" uid="uid://d4en6cvjicl6g" path="res://assets/icons/coffee_cup.png" id="3_7dset"]
 [ext_resource type="Script" path="res://levels/market/orders.gd" id="3_8elxl"]
-[ext_resource type="Script" path="res://levels/market/crafters.gd" id="3_13po6"]
-[ext_resource type="Texture2D" uid="uid://i0xyhjy3uh38" path="res://assets/icons/lemonade.png" id="4_tpomx"]
-[ext_resource type="Texture2D" uid="uid://cwhxqqbwpr0no" path="res://assets/icons/steven.png" id="5_ilk3d"]
+[ext_resource type="PackedScene" uid="uid://cinnao4qbuhsx" path="res://levels/market/crafter.tscn" id="3_pya02"]
+[ext_resource type="Texture2D" uid="uid://eoxk3fpsayio" path="res://assets/icons/iced_coffee.png" id="5_6bws3"]
+[ext_resource type="Texture2D" uid="uid://dgsfqibawkkd1" path="res://assets/icons/bread_loaf.png" id="6_72vhi"]
+[ext_resource type="Texture2D" uid="uid://cgs0vwnoajkk8" path="res://assets/icons/croissant.png" id="7_ednky"]
 
 [node name="World" type="Node2D"]
 
@@ -33,13 +34,6 @@ offset_right = 78.0
 offset_bottom = 55.0
 text = "Exit"
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Market"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 160.0
-offset_right = 992.0
-offset_bottom = 416.0
-
 [node name="Money" type="Label" parent="CanvasLayer/Market"]
 layout_mode = 0
 offset_left = 976.0
@@ -48,98 +42,53 @@ offset_right = 1088.0
 offset_bottom = 47.0
 text = "Money "
 
-[node name="CoffeeCount" type="Label" parent="CanvasLayer/Market"]
-layout_mode = 0
-offset_left = 264.0
-offset_top = 200.0
-offset_right = 377.0
-offset_bottom = 215.0
-text = "0"
-horizontal_alignment = 1
-
-[node name="LemonadeCount" type="Label" parent="CanvasLayer/Market"]
-layout_mode = 0
-offset_left = 520.0
-offset_top = 200.0
-offset_right = 633.0
-offset_bottom = 215.0
-text = "0"
-horizontal_alignment = 1
-
-[node name="MuffinCount" type="Label" parent="CanvasLayer/Market"]
-layout_mode = 0
-offset_left = 776.0
-offset_top = 200.0
-offset_right = 889.0
-offset_bottom = 215.0
-text = "0"
-horizontal_alignment = 1
-
 [node name="Crafters" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_13po6")
 
-[node name="CoffeeProgress" type="ProgressBar" parent="CanvasLayer/Crafters"]
-layout_mode = 2
-offset_left = 256.0
-offset_top = 288.0
-offset_right = 384.0
-offset_bottom = 307.0
-
-[node name="LemonadeProgress" type="ProgressBar" parent="CanvasLayer/Crafters"]
-layout_mode = 2
-offset_left = 512.0
-offset_top = 288.0
-offset_right = 640.0
-offset_bottom = 307.0
-
-[node name="MuffinProgress" type="ProgressBar" parent="CanvasLayer/Crafters"]
-layout_mode = 2
-offset_left = 768.0
-offset_top = 288.0
-offset_right = 896.0
-offset_bottom = 307.0
-
-[node name="CoffeeCup" type="Sprite2D" parent="CanvasLayer/Crafters"]
-position = Vector2(320, 256)
-texture = ExtResource("3_7dset")
-
-[node name="Lemonade" type="Sprite2D" parent="CanvasLayer/Crafters"]
-position = Vector2(576, 255.25)
-scale = Vector2(2, 1.87143)
-texture = ExtResource("4_tpomx")
-
-[node name="Muffin" type="Sprite2D" parent="CanvasLayer/Crafters"]
-position = Vector2(834.5, 256)
-scale = Vector2(1.95455, 2)
-texture = ExtResource("5_ilk3d")
-
-[node name="CoffeeCraft" type="Button" parent="CanvasLayer/Crafters"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Crafters"]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 320.0
-offset_right = 384.0
-offset_bottom = 343.0
-text = "Craft"
+offset_left = 128.0
+offset_top = 192.0
+offset_right = 1024.0
+offset_bottom = 448.0
+theme_override_constants/separation = 235
 
-[node name="LemonadeCraft" type="Button" parent="CanvasLayer/Crafters"]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 320.0
-offset_right = 640.0
-offset_bottom = 343.0
-text = "Craft"
+[node name="CoffeeCrafter" parent="CanvasLayer/Crafters/HBoxContainer" instance=ExtResource("3_pya02")]
+layout_mode = 2
+craft_value = 100.0
+crafted_item = "coffee"
+coffee_ground_amount = 1
+milk_amount = 1
+sprite_image = ExtResource("3_7dset")
 
-[node name="MuffinCraft" type="Button" parent="CanvasLayer/Crafters"]
-layout_mode = 0
-offset_left = 768.0
-offset_top = 320.0
-offset_right = 896.0
-offset_bottom = 343.0
-text = "Craft"
+[node name="IcedCoffeeCrafter" parent="CanvasLayer/Crafters/HBoxContainer" instance=ExtResource("3_pya02")]
+layout_mode = 2
+craft_value = 100.0
+crafted_item = "iced_coffee"
+coffee_ground_amount = 1
+milk_amount = 2
+sprite_image = ExtResource("5_6bws3")
+
+[node name="BreadCrafter" parent="CanvasLayer/Crafters/HBoxContainer" instance=ExtResource("3_pya02")]
+layout_mode = 2
+craft_value = 100.0
+crafted_item = "bread_roll"
+milk_amount = 1
+flour_amount = 1
+egg_amount = 1
+sprite_image = ExtResource("6_72vhi")
+
+[node name="CroissantCrafter" parent="CanvasLayer/Crafters/HBoxContainer" instance=ExtResource("3_pya02")]
+layout_mode = 2
+craft_value = 100.0
+crafted_item = "croissant"
+milk_amount = 1
+flour_amount = 2
+egg_amount = 2
+sprite_image = ExtResource("7_ednky")
 
 [node name="Orders" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -169,7 +118,4 @@ offset_bottom = 608.0
 theme_override_constants/separation = 75
 
 [connection signal="pressed" from="CanvasLayer/Market/Exit" to="CanvasLayer/Market" method="_on_button_pressed"]
-[connection signal="button_up" from="CanvasLayer/Crafters/CoffeeCraft" to="CanvasLayer/Crafters" method="_on_coffee_craft_button_up"]
-[connection signal="button_up" from="CanvasLayer/Crafters/LemonadeCraft" to="CanvasLayer/Crafters" method="_on_lemonade_craft_button_up"]
-[connection signal="button_up" from="CanvasLayer/Crafters/MuffinCraft" to="CanvasLayer/Crafters" method="_on_muffin_craft_button_up"]
 [connection signal="timeout" from="CanvasLayer/Orders/OrderTimer" to="CanvasLayer/Orders" method="_on_order_timer_timeout"]

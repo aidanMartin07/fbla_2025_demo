@@ -4,10 +4,10 @@ extends Node
 
 var inventory: Dictionary = {
 	"money": 500.00,
-	"coffee_ground": 0,
-	"flour": 0,
-	"eggs": 0,
-	"milk": 0
+	"coffee_ground": 25,
+	"flour": 25,
+	"eggs": 25,
+	"milk": 25
 }
 
 var upgrades: Dictionary = {
@@ -17,10 +17,10 @@ var upgrades: Dictionary = {
 }
 
 var completed_crafts: Dictionary = {
-	"coffee": 0,
-	"bread_roll": 0,
-	"croissant": 0,
-	"iced_coffee": 0,
+	"coffee": 20,
+	"bread_roll": 20,
+	"croissant": 20,
+	"iced_coffee": 20,
 }
 
 var pause_menu = preload("res://levels/pause_menu/pause_menu.tscn")

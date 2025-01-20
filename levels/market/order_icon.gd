@@ -10,9 +10,10 @@ var price = int(rand.randf_range(5,10))
 
 #need to load icons to convert to Texture2D
 var icons = [
-	load("res://assets/icons/coffee.png"),
-	load("res://assets/icons/lemonade.png"),
-	load("res://assets/icons/steven.png"),
+	load("res://assets/icons/coffee_cup.png"),
+	load("res://assets/icons/iced_coffee.png"),
+	load("res://assets/icons/bread_loaf.png"),
+	load("res://assets/icons/croissant.png")
 ]
 
 func set_icon(order_type: String) -> void:
@@ -22,11 +23,14 @@ func set_icon(order_type: String) -> void:
 			texture_button.texture_normal = icons[0]
 			texture_button.texture_pressed = icons[0]
 			texture_button.texture_hover = icons[0]
-		"lemonade":
+		"iced_coffee":
 			texture_button.texture_normal = icons[1]
-		"muffin":
+		"bread_roll":
 			texture_button.texture_normal = icons[2]
+		"croissant":
+			texture_button.texture_normal = icons[3]
 		_:
+			print(order)
 			texture_button.texture_normal = load("res://assets/icons/money.png")
 
 # Called when the node enters the scene tree for the first time.
