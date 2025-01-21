@@ -12,8 +12,9 @@ var inventory: Dictionary = {
 
 var upgrades: Dictionary = {
 	"coffee": 1,
-	"lemonade": 1,
-	"muffin": 1,
+	"iced_coffee": 1,
+	"bread_roll": 1,
+	"croissant": 1
 }
 
 var completed_crafts: Dictionary = {
@@ -21,6 +22,13 @@ var completed_crafts: Dictionary = {
 	"bread_roll": 20,
 	"croissant": 20,
 	"iced_coffee": 20,
+}
+
+var market_prices: Dictionary = {
+	"coffee": 20,
+	"bread_roll": 22,
+	"croissant": 22,
+	"iced_coffee": 34
 }
 
 var pause_menu = preload("res://levels/pause_menu/pause_menu.tscn")
@@ -31,6 +39,8 @@ var last_town_pos: Dictionary = {
 	"x": 16,
 	"y": -248,
 }
+
+var reputation: float = 1
 
 #determines if there is a instance of player node / sprite
 #if null no physical player should be displayed on screen

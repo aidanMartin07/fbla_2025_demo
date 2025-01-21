@@ -14,7 +14,7 @@ script = ExtResource("1_3hrht")
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 192.0
-offset_bottom = 256.0
+offset_bottom = 320.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel"]
 position = Vector2(96, 96)
@@ -43,4 +43,23 @@ offset_bottom = 56.0
 bbcode_enabled = true
 text = "[center]0"
 
+[node name="PriceLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_top = 232.0
+offset_right = 80.0
+offset_bottom = 248.0
+bbcode_enabled = true
+text = "[center]Price:"
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 224.0
+offset_right = 176.0
+offset_bottom = 255.0
+alignment = 1
+max_length = 6
+
 [connection signal="button_up" from="Panel/CraftButton" to="." method="_on_craft_button_button_up"]
+[connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="Panel/LineEdit" to="." method="_on_line_edit_text_submitted"]

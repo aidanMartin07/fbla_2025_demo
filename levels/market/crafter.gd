@@ -16,6 +16,7 @@ class_name Crafter
 @onready var amount: RichTextLabel = $Panel/Amount
 @onready var progress_bar: ProgressBar = $Panel/ProgressBar
 @onready var sprite_2d: Sprite2D = $Panel/Sprite2D
+@onready var line_edit: LineEdit = $Panel/LineEdit
 
 var crafting: bool = false
 
@@ -24,7 +25,7 @@ var crafting: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite_2d.texture = sprite_image
-
+	line_edit.text = str(PlayerManager.market_prices[crafted_item])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,7 +37,7 @@ func _process(delta: float) -> void:
 		crafting = false
 	
 	if(crafting == true):
-		progress_bar.value += craft_value * delta
+		progress_bar.value += craft_value * delta * PlayerManager.upgrades[crafted_item]
 
 func _on_craft_button_button_up() -> void:
 	if(crafting):
@@ -50,3 +51,14 @@ func _on_craft_button_button_up() -> void:
 		PlayerManager.inventory["milk"] -= milk_amount
 		PlayerManager.inventory["flour"] -= flour_amount
 		PlayerManager.inventory["eggs"] -= egg_amount
+
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
+	PlayerManager.market_prices[crafted_item] =float(new_text)
+
+
+
+func _on_line_edit_text_changed(new_text: String) -> void:
+	var regex: RegEx = RegEx.new()
+	regex.compile("[0-9]")
+	

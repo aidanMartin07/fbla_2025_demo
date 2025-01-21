@@ -42,6 +42,14 @@ offset_right = 1088.0
 offset_bottom = 47.0
 text = "Money "
 
+[node name="Reputation" type="Label" parent="CanvasLayer/Market"]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 64.0
+offset_right = 1089.0
+offset_bottom = 79.0
+text = "Reputation: "
+
 [node name="Crafters" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -51,14 +59,14 @@ offset_bottom = 40.0
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Crafters"]
 layout_mode = 0
 offset_left = 128.0
-offset_top = 192.0
+offset_top = 129.0
 offset_right = 1024.0
-offset_bottom = 448.0
+offset_bottom = 385.0
 theme_override_constants/separation = 235
 
 [node name="CoffeeCrafter" parent="CanvasLayer/Crafters/HBoxContainer" instance=ExtResource("3_pya02")]
 layout_mode = 2
-craft_value = 100.0
+craft_value = 25.0
 crafted_item = "coffee"
 coffee_ground_amount = 1
 milk_amount = 1
@@ -66,7 +74,7 @@ sprite_image = ExtResource("3_7dset")
 
 [node name="IcedCoffeeCrafter" parent="CanvasLayer/Crafters/HBoxContainer" instance=ExtResource("3_pya02")]
 layout_mode = 2
-craft_value = 100.0
+craft_value = 20.0
 crafted_item = "iced_coffee"
 coffee_ground_amount = 1
 milk_amount = 2
@@ -74,7 +82,7 @@ sprite_image = ExtResource("5_6bws3")
 
 [node name="BreadCrafter" parent="CanvasLayer/Crafters/HBoxContainer" instance=ExtResource("3_pya02")]
 layout_mode = 2
-craft_value = 100.0
+craft_value = 15.0
 crafted_item = "bread_roll"
 milk_amount = 1
 flour_amount = 1
@@ -83,7 +91,7 @@ sprite_image = ExtResource("6_72vhi")
 
 [node name="CroissantCrafter" parent="CanvasLayer/Crafters/HBoxContainer" instance=ExtResource("3_pya02")]
 layout_mode = 2
-craft_value = 100.0
+craft_value = 15.0
 crafted_item = "croissant"
 milk_amount = 1
 flour_amount = 2

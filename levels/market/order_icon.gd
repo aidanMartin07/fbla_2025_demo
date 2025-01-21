@@ -44,6 +44,6 @@ func _process(delta: float) -> void:
 
 func _on_texture_button_pressed() -> void:
 	if(PlayerManager.completed_crafts[order] > 0):
-		PlayerManager.inventory["money"] += price
+		PlayerManager.inventory["money"] += PlayerManager.market_prices[order]
 		PlayerManager.completed_crafts[order] -= 1
 		self.queue_free()
