@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://wltcqcu10f3c"]
+[gd_scene load_steps=4 format=3 uid="uid://wltcqcu10f3c"]
 
 [ext_resource type="Script" path="res://levels/main_menu/main_menu.gd" id="1_xi86u"]
+[ext_resource type="Texture2D" uid="uid://cr7xouh0gua0r" path="res://ui/berkly5.png" id="2_3gqw5"]
+
+[sub_resource type="Theme" id="Theme_xeosw"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,23 +14,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xi86u")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Berkly5" type="Sprite2D" parent="."]
+position = Vector2(585, 336)
+scale = Vector2(0.567601, 0.567601)
+texture = ExtResource("2_3gqw5")
+
+[node name="Start" type="Button" parent="."]
 layout_mode = 2
-offset_right = 1152.0
-offset_bottom = 649.0
-size_flags_vertical = 3
-color = Color(0, 0.660481, 0.661469, 1)
+offset_left = 845.0
+offset_top = 192.0
+offset_right = 1124.0
+offset_bottom = 282.0
+theme = SubResource("Theme_xeosw")
+theme_override_font_sizes/font_size = 32
+text = "Start!"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="."]
 layout_mode = 2
-text = "Start"
+offset_left = 845.0
+offset_top = 290.0
+offset_right = 1124.0
+offset_bottom = 380.0
+theme = SubResource("Theme_xeosw")
+theme_override_font_sizes/font_size = 32
+text = "Quit!"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[node name="Tutorial" type="Button" parent="."]
+layout_mode = 2
+offset_left = 845.0
+offset_top = 388.0
+offset_right = 1124.0
+offset_bottom = 478.0
+theme = SubResource("Theme_xeosw")
+theme_override_font_sizes/font_size = 32
+text = "Tutorial!"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="button_up" from="Quit" to="." method="_on_quit"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_start_pressed"]

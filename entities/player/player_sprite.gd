@@ -36,7 +36,8 @@ func _physics_process(delta: float) -> void:
 			canvas_layer.get_node("Inventory").queue_free()
 			inventory_open = false
 	
-	coords.text = "X:" + str(position.x) + "\nY:" + str(position.y) +"\nFPS:" + str(Engine.get_frames_per_second())
+	
+	coords.text = "X:" + str(global_position.x) + "\nY:" + str(global_position.y) +"\nFPS:" + str(Engine.get_frames_per_second())
 	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	if direction:

@@ -28,8 +28,8 @@ var pause_menu_instance: bool = false
 
 #holds position values for last player position in town before entering new building
 var last_town_pos: Dictionary = {
-	"x": 16,
-	"y": -248,
+	"x": -32,
+	"y": -130,
 }
 
 #determines if there is a instance of player node / sprite
