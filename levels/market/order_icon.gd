@@ -6,7 +6,8 @@ extends Control
 #String to tell what type of order
 var order: String = ""
 var rand = RandomNumberGenerator.new()
-var price = int(rand.randf_range(5,10))
+var set_price: float
+var reputation_gain: float
 
 #need to load icons to convert to Texture2D
 var icons = [
@@ -16,8 +17,10 @@ var icons = [
 	load("res://assets/icons/croissant.png")
 ]
 
-func set_icon(order_type: String) -> void:
+func set_icon(order_type: String, price: float, rep: float) -> void:
 	order = order_type
+	set_price = price
+	reputation_gain = rep
 	match order:
 		"coffee":
 			texture_button.texture_normal = icons[0]
@@ -35,7 +38,7 @@ func set_icon(order_type: String) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(price)
+	print(str(set_price))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -44,6 +47,7 @@ func _process(delta: float) -> void:
 
 func _on_texture_button_pressed() -> void:
 	if(PlayerManager.completed_crafts[order] > 0):
-		PlayerManager.inventory["money"] += PlayerManager.market_prices[order]
+		PlayerManager.inventory["money"] += set_price
 		PlayerManager.completed_crafts[order] -= 1
+		PlayerManager.reputation += reputation_gain
 		self.queue_free()

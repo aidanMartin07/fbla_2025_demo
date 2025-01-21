@@ -36,17 +36,17 @@ text = "Exit"
 
 [node name="Money" type="Label" parent="CanvasLayer/Market"]
 layout_mode = 0
-offset_left = 976.0
+offset_left = 960.0
 offset_top = 32.0
-offset_right = 1088.0
+offset_right = 1072.0
 offset_bottom = 47.0
 text = "Money "
 
 [node name="Reputation" type="Label" parent="CanvasLayer/Market"]
 layout_mode = 0
-offset_left = 976.0
+offset_left = 960.0
 offset_top = 64.0
-offset_right = 1089.0
+offset_right = 1073.0
 offset_bottom = 79.0
 text = "Reputation: "
 

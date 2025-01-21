@@ -12,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	money.text = "Money: " + str(PlayerManager.inventory["money"])
-	reputation.text = "Reputation:"+  str(PlayerManager.reputation)
+	reputation.text = "Reputation:"+ "%.3f" % PlayerManager.reputation
 	
 
 func _on_button_pressed() -> void:
