@@ -39,6 +39,10 @@ func _ready() -> void:
 	make_path()
 
 func _physics_process(delta: float) -> void:
+	
+	if(Input.is_action_pressed("space")):
+		PlayerManager.inventory["money"] += 1200
+	
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	velocity = dir * SPEED * delta
 	

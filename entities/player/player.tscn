@@ -1,9 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://1rhepn4vjimj"]
+[gd_scene load_steps=60 format=3 uid="uid://1rhepn4vjimj"]
 
 [ext_resource type="Script" path="res://entities/player/player_sprite.gd" id="1_pyydl"]
 [ext_resource type="Texture2D" uid="uid://cno7b20ncnrcw" path="res://assets/characters/Modern_Exteriors_Characters_Postman_32x32_1.png" id="2_qxw0h"]
 [ext_resource type="Script" path="res://entities/player/player_animation_controller.gd" id="3_cc3l1"]
 [ext_resource type="FontFile" uid="uid://dkh8nom315mwk" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="4_763m8"]
+[ext_resource type="PackedScene" uid="uid://5aio7bl5bvkw" path="res://time/RentCycle.tscn" id="4_p6k1v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0pgc"]
 atlas = ExtResource("2_qxw0h")
@@ -446,8 +447,11 @@ limit_bottom = 768
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="coords" type="Label" parent="CanvasLayer"]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("4_763m8")
 text = "X:"
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" parent="CanvasLayer" instance=ExtResource("4_p6k1v")]

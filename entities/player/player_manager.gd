@@ -41,18 +41,43 @@ var last_town_pos: Dictionary = {
 }
 
 var reputation: float = 1
+var rent: int = 250
+
+var win = false
+var lose = false
+
+var just_paid_rent = false
 
 #determines if there is a instance of player node / sprite
 #if null no physical player should be displayed on screen
 var player_instance = null 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(int(TotalTime.total_time% 180) == 0 and TotalTime.total_time != 0 and just_paid_rent == false):
+		PlayerManager.inventory["money"] -= 250
+		just_paid_rent = true
+	
+	if(int(TotalTime.total_time%180 == 1)):
+		just_paid_rent = false
+	
+	if(PlayerManager.inventory["money"] <= 0):
+		lose = true
+		get_tree().change_scene_to_file("res://levels/lose_screen.tscn")
+		player_instance = null
+	
+	if(PlayerManager.inventory["money"] >= 10000):
+		win = true
+		get_tree().change_scene_to_file("res://levels/win_screen.tscn")
+		player_instance = null
+
+	
 	if(Input.is_action_just_pressed("esc") and player_instance != null):
 		if(!pause_menu_instance):
 			pause_menu_instance = true
