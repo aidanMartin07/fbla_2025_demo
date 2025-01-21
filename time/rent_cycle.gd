@@ -5,7 +5,6 @@ var time = TotalTime.total_time
 
 func _physics_process(delta: float) -> void:
 	time = float(time) + delta
-	
 	update_ui()
 
 func update_ui():

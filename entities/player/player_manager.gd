@@ -67,15 +67,17 @@ func _process(delta: float) -> void:
 	if(int(TotalTime.total_time%180 == 1)):
 		just_paid_rent = false
 	
-	if(PlayerManager.inventory["money"] <= 0):
+	if(PlayerManager.inventory["money"] <= 0 and !lose):
 		lose = true
-		get_tree().change_scene_to_file("res://levels/lose_screen.tscn")
 		player_instance = null
+		get_tree().change_scene_to_file("res://levels/lose_screen/lose_screen.tscn")
 	
-	if(PlayerManager.inventory["money"] >= 10000):
+	if(PlayerManager.inventory["money"] >= 10000 and !win):
 		win = true
-		get_tree().change_scene_to_file("res://levels/win_screen.tscn")
 		player_instance = null
+		get_tree().change_scene_to_file("res://levels/win_screen/win_screen.tscn")
+	
+	
 
 	
 	if(Input.is_action_just_pressed("esc") and player_instance != null):
