@@ -25,6 +25,9 @@ func _ready() -> void:
 	#position.x = PlayerManager.last_town_pos["x"]
 	#position.y = PlayerManager.last_town_pos["y"]
 
+func _process(delta: float) -> void:
+	coords.text = "X:" + str(global_position.x) + "\nY:" + str(global_position.y) +"\nFPS:" + str(Engine.get_frames_per_second())
+
 func _physics_process(delta: float) -> void:
 	
 	if(Input.is_action_just_pressed("tab")):
@@ -35,8 +38,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			canvas_layer.get_node("Inventory").queue_free()
 			inventory_open = false
-	
-	coords.text = "X:" + str(position.x) + "\nY:" + str(position.y) +"\nFPS:" + str(Engine.get_frames_per_second())
 	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	if direction:

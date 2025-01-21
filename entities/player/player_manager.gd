@@ -4,23 +4,31 @@ extends Node
 
 var inventory: Dictionary = {
 	"money": 500.00,
-	"coffee_ground": 0,
-	"flour": 0,
-	"eggs": 0,
-	"milk": 0
+	"coffee_ground": 25,
+	"flour": 25,
+	"eggs": 25,
+	"milk": 25
 }
 
 var upgrades: Dictionary = {
 	"coffee": 1,
-	"lemonade": 1,
-	"muffin": 1,
+	"iced_coffee": 1,
+	"bread_roll": 1,
+	"croissant": 1
 }
 
 var completed_crafts: Dictionary = {
-	"coffee": 0,
-	"bread_roll": 0,
-	"croissant": 0,
-	"iced_coffee": 0,
+	"coffee": 20,
+	"bread_roll": 20,
+	"croissant": 20,
+	"iced_coffee": 20,
+}
+
+var market_prices: Dictionary = {
+	"coffee": 20,
+	"bread_roll": 22,
+	"croissant": 22,
+	"iced_coffee": 34
 }
 
 var pause_menu = preload("res://levels/pause_menu/pause_menu.tscn")
@@ -31,6 +39,8 @@ var last_town_pos: Dictionary = {
 	"x": 16,
 	"y": -248,
 }
+
+var reputation: float = 1
 
 #determines if there is a instance of player node / sprite
 #if null no physical player should be displayed on screen
