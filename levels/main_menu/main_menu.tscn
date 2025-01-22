@@ -49,6 +49,23 @@ theme = SubResource("Theme_xeosw")
 theme_override_font_sizes/font_size = 32
 text = "Tutorial!"
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 32.0
+offset_right = 1123.0
+offset_bottom = 159.0
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 35.0
+offset_right = 1123.0
+offset_bottom = 162.0
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]Perspicacious Bakery"
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="button_up" from="Quit" to="." method="_on_quit"]
 [connection signal="pressed" from="Tutorial" to="." method="_on_start_pressed"]
