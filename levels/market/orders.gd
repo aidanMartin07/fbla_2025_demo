@@ -45,12 +45,12 @@ func _process(delta: float) -> void:
 		#add_new_order(order_name)
 
 func calculate_order_chance(order_name: String) -> void:
+	#Algorithm to determine how likely a customer is to order
+	#Compares current price to fair market price
 	order_chance = 90.0
 	var order_price = PlayerManager.market_prices[order_name]
 	order_chance *= (fair_price[order_name]/PlayerManager.market_prices[order_name]) 
-	print("order before rep: "+ str(order_chance))
 	order_chance *= (fair_price[order_name]/PlayerManager.market_prices[order_name]) + (PlayerManager.reputation/10)
-	print("order after rep:" + str(order_chance))
 
 func add_new_order(order_name: String, reputation: float) -> void:
 	var new_order = order_icon.instantiate()
@@ -61,18 +61,18 @@ func add_new_order(order_name: String, reputation: float) -> void:
 
 func _on_order_timer_timeout() -> void:
 	current_order_amount = order_container.get_child_count()
-	print(current_order_amount)
-	if(current_order_amount < MAX_ORDERS):
+	if(current_order_amount < MAX_ORDERS): 	#Limites amount of orders at once
 		var order_name = order_list[int(rand.randf_range(0,4))]
 		var order_check = int(rand.randf_range(0,100))
-		print("order check chance is:" + str(order_check))
-		calculate_order_chance(order_name)
-		var reputation_gain = order_chance/1000
+		calculate_order_chance(order_name) 
+		var reputation_gain = order_chance/1000 #increase reputation for successful order
 		if(order_check <= order_chance):
 			add_new_order(order_name, reputation_gain)
 		else:
+			#Too high price
+			#customer didnt purchase
+			#lose rep
 			PlayerManager.reputation -= order_chance/1000
-			print("Rep decrease: -" +str(order_chance/1000))
 			
 
 			

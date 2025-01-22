@@ -876,7 +876,6 @@ size = Vector2(20, 18)
 y_sort_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 0
 motion_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://d3yf8sa6e7l7s"]
+[gd_scene load_steps=10 format=4 uid="uid://d3yf8sa6e7l7s"]
 
 [ext_resource type="TileSet" uid="uid://2tcyrk04i7aa" path="res://assets/tilemaps/indoor_basic.tres" id="1_nbryx"]
 [ext_resource type="Script" path="res://levels/market/control.gd" id="2_5x6aq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://eoxk3fpsayio" path="res://assets/icons/iced_coffee.png" id="5_6bws3"]
 [ext_resource type="Texture2D" uid="uid://dgsfqibawkkd1" path="res://assets/icons/bread_loaf.png" id="6_72vhi"]
 [ext_resource type="Texture2D" uid="uid://cgs0vwnoajkk8" path="res://assets/icons/croissant.png" id="7_ednky"]
+[ext_resource type="PackedScene" uid="uid://5aio7bl5bvkw" path="res://time/RentCycle.tscn" id="9_frsyo"]
 
 [node name="World" type="Node2D"]
 
@@ -124,6 +125,12 @@ offset_top = 544.0
 offset_right = 1120.0
 offset_bottom = 608.0
 theme_override_constants/separation = 75
+
+[node name="Label" parent="CanvasLayer" instance=ExtResource("9_frsyo")]
+offset_left = -91.0
+offset_top = -43.0
+offset_right = -18.0
+offset_bottom = -21.0
 
 [connection signal="pressed" from="CanvasLayer/Market/Exit" to="CanvasLayer/Market" method="_on_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/Orders/OrderTimer" to="CanvasLayer/Orders" method="_on_order_timer_timeout"]

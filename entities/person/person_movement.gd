@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 6000.0
+const SPEED = 5000.0
 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var animated_sprite_2d: PersonAnimationController = $AnimatedSprite2D
@@ -61,7 +61,6 @@ func make_path() -> void:
 		nav_agent.target_position = position_nodes.pick_random()
 		on_point = false
 		buy_at_bakery()
-	
 	elif(on_point):
 		var go_to_bakery = randi()%2
 		print(go_to_bakery)

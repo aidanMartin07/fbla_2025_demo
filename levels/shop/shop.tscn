@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c3q5nvmopu2n7"]
+[gd_scene load_steps=14 format=4 uid="uid://c3q5nvmopu2n7"]
 
 [ext_resource type="TileSet" uid="uid://2tcyrk04i7aa" path="res://assets/tilemaps/indoor_basic.tres" id="1_gjj8n"]
 [ext_resource type="Script" path="res://levels/shop/shop_container.gd" id="2_c360s"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://eoxk3fpsayio" path="res://assets/icons/iced_coffee.png" id="9_2asc0"]
 [ext_resource type="Texture2D" uid="uid://cgs0vwnoajkk8" path="res://assets/icons/croissant.png" id="10_gcxh5"]
 [ext_resource type="Texture2D" uid="uid://dgsfqibawkkd1" path="res://assets/icons/bread_loaf.png" id="11_d5vvc"]
+[ext_resource type="PackedScene" uid="uid://5aio7bl5bvkw" path="res://time/RentCycle.tscn" id="12_4ii5a"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2xj01"]
 
@@ -258,6 +259,11 @@ offset_right = 704.0
 offset_bottom = 432.0
 bbcode_enabled = true
 text = "[center]$100"
+
+[node name="Label" parent="CanvasLayer" instance=ExtResource("12_4ii5a")]
+offset_left = -73.0
+offset_top = -31.0
+offset_bottom = -9.0
 
 [connection signal="pressed" from="CanvasLayer/ShopContainer/Exit" to="CanvasLayer/ShopContainer" method="_on_exit_pressed"]
 [connection signal="button_up" from="CanvasLayer/ShopContainer/GridContainer/CoffeePurchase" to="CanvasLayer/ShopContainer" method="_on_coffee_purchase_button_up"]

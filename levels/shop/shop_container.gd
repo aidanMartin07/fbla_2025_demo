@@ -11,10 +11,10 @@ var costs: Dictionary = {
 	"milk": 6,
 	"eggs": 9,
 	"flour": 5,
-	"coffee": 100,
-	"iced_coffee": 100,
-	"bread_roll": 100,
-	"croissant": 100,
+	"coffee": 100 * PlayerManager.upgrade_level["coffee"],
+	"iced_coffee": 100 * PlayerManager.upgrade_level["iced_coffee"],
+	"bread_roll": 100 * PlayerManager.upgrade_level["bread_roll"],
+	"croissant": 100 * PlayerManager.upgrade_level["croissant"],
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -26,10 +26,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	money.text = "Money:" + str(PlayerManager.inventory["money"])
 	
-	coffee_upgrade_cost.text = str(costs["coffee"])
-	iced_coffee_upgrade_cost.text = str(costs["iced_coffee"])
-	bread_roll_upgrade_cost.text = str(costs["bread_roll"])
-	croissant_upgrade_cost.text = str(costs["croissant"])
+	coffee_upgrade_cost.text = str(costs["coffee"] * PlayerManager.upgrade_level["coffee"])
+	iced_coffee_upgrade_cost.text = str(costs["iced_coffee"] * PlayerManager.upgrade_level["iced_coffee"])
+	bread_roll_upgrade_cost.text = str(costs["bread_roll"] * PlayerManager.upgrade_level["bread_roll"])
+	croissant_upgrade_cost.text = str(costs["croissant"] * PlayerManager.upgrade_level["croissant"])
 
 func add_item_to_inv(item: String):
 	if(PlayerManager.inventory["money"] >= costs[item]):
@@ -39,8 +39,8 @@ func add_item_to_inv(item: String):
 func add_upgrade_to_inv(upgrade:String):
 	if(PlayerManager.inventory["money"] >= costs[upgrade]):
 		PlayerManager.upgrades[upgrade] += 0.2
-		PlayerManager.inventory["money"] -= costs[upgrade]
-		costs[upgrade] *= 2
+		PlayerManager.inventory["money"] -= costs[upgrade] * PlayerManager.upgrade_level[upgrade]
+		PlayerManager.upgrade_level[upgrade] += 1
 
 
 func _on_exit_pressed() -> void:

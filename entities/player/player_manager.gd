@@ -4,10 +4,10 @@ extends Node
 
 var inventory: Dictionary = {
 	"money": 500.00,
-	"coffee_ground": 25,
-	"flour": 25,
-	"eggs": 25,
-	"milk": 25
+	"coffee_ground": 0,
+	"flour": 0,
+	"eggs": 0,
+	"milk": 0
 }
 
 var upgrades: Dictionary = {
@@ -18,10 +18,10 @@ var upgrades: Dictionary = {
 }
 
 var completed_crafts: Dictionary = {
-	"coffee": 20,
-	"bread_roll": 20,
-	"croissant": 20,
-	"iced_coffee": 20,
+	"coffee": 0,
+	"bread_roll": 0,
+	"croissant": 0,
+	"iced_coffee": 0,
 }
 
 var market_prices: Dictionary = {
@@ -29,6 +29,13 @@ var market_prices: Dictionary = {
 	"bread_roll": 22,
 	"croissant": 22,
 	"iced_coffee": 34
+}
+
+var upgrade_level: Dictionary = {
+	"coffee": 1,
+	"bread_roll": 1,
+	"croissant": 1,
+	"iced_coffee": 1
 }
 
 var pause_menu = preload("res://levels/pause_menu/pause_menu.tscn")
@@ -60,10 +67,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(int(TotalTime.total_time% 180) == 0 and TotalTime.total_time != 0 and just_paid_rent == false):
-		PlayerManager.inventory["money"] -= 250
+	#Every three minutes player pays rent
+	#Rent lowered with positive reputation
+	#Rent increase with negative reputation
+	if(int(TotalTime.total_time% 180) == 0 and TotalTime.total_time != 0 
+	and just_paid_rent == false):
+		PlayerManager.inventory["money"] -= (rent - reputation)
 		just_paid_rent = true
 	
+	#stops rent from being paid for multiple frames
 	if(int(TotalTime.total_time%180 == 1)):
 		just_paid_rent = false
 	
