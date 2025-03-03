@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0y5y7xw4ev1k"]
+[gd_scene load_steps=14 format=3 uid="uid://d0y5y7xw4ev1k"]
 
 [ext_resource type="Script" path="res://entities/player/inventory.gd" id="1_wjth3"]
 [ext_resource type="Texture2D" uid="uid://cudf48ji3omp6" path="res://assets/icons/money.png" id="2_466m0"]
@@ -10,6 +10,43 @@
 [ext_resource type="Texture2D" uid="uid://eoxk3fpsayio" path="res://assets/icons/iced_coffee.png" id="8_ji8xj"]
 [ext_resource type="Texture2D" uid="uid://dgsfqibawkkd1" path="res://assets/icons/bread_loaf.png" id="9_n8s2h"]
 [ext_resource type="Texture2D" uid="uid://cgs0vwnoajkk8" path="res://assets/icons/croissant.png" id="10_s63co"]
+
+[sub_resource type="Animation" id="Animation_6166p"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1000, -196), Vector2(-576, -196), Vector2(-566, -196), Vector2(-576, -196)]
+}
+
+[sub_resource type="Animation" id="Animation_jnmm5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-576, -196)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dtkmo"]
+_data = {
+"RESET": SubResource("Animation_jnmm5"),
+"open": SubResource("Animation_6166p")
+}
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -29,142 +66,165 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -160.0
-offset_right = 320.0
-offset_bottom = 160.0
+offset_left = -1000.0
+offset_top = -196.0
+offset_right = -616.0
+offset_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+[node name="LabelMargins" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -336.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/LabelMargins"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="IngredientsLabel" type="RichTextLabel" parent="Panel/LabelMargins/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]Ingredients:"
+fit_content = true
+tab_size = 10
+text_direction = 1
+
+[node name="Separataor" type="Control" parent="Panel/LabelMargins/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="CraftsLabel" type="RichTextLabel" parent="Panel/LabelMargins/HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Crafts:"
+tab_size = 10
+text_direction = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/LabelMargins"]
+visible = false
 position = Vector2(40, 84)
 texture = ExtResource("2_466m0")
 
-[node name="CofeeGrounds" type="Sprite2D" parent="Panel"]
+[node name="CofeeGrounds" type="Sprite2D" parent="Panel/LabelMargins"]
+visible = false
 position = Vector2(40, 132)
 scale = Vector2(0.771186, 0.75)
 texture = ExtResource("3_5sbsa")
 
-[node name="Flour" type="Sprite2D" parent="Panel"]
+[node name="Flour" type="Sprite2D" parent="Panel/LabelMargins"]
+visible = false
 position = Vector2(40, 172)
 texture = ExtResource("4_lcbqt")
 
-[node name="MilkCarton" type="Sprite2D" parent="Panel"]
+[node name="MilkCarton" type="Sprite2D" parent="Panel/LabelMargins"]
+visible = false
 position = Vector2(40, 228)
 texture = ExtResource("5_d0yci")
 
-[node name="EggCarton" type="Sprite2D" parent="Panel"]
+[node name="EggCarton" type="Sprite2D" parent="Panel/LabelMargins"]
+visible = false
 position = Vector2(40, 276)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_l3o3f")
 
-[node name="CoffeeCup" type="Sprite2D" parent="Panel"]
-position = Vector2(328, 95)
+[node name="CoffeeCup" type="Sprite2D" parent="Panel/LabelMargins"]
+visible = false
+position = Vector2(240, 96)
 scale = Vector2(0.625, 0.75)
 texture = ExtResource("7_h34xc")
 
-[node name="IcedCoffee2" type="Sprite2D" parent="Panel"]
-position = Vector2(328, 143)
+[node name="IcedCoffee2" type="Sprite2D" parent="Panel/LabelMargins"]
+visible = false
+position = Vector2(240, 144)
 scale = Vector2(0.833333, 0.875)
 texture = ExtResource("8_ji8xj")
 
-[node name="BreadLoaf" type="Sprite2D" parent="Panel"]
-position = Vector2(328, 183)
+[node name="BreadLoaf" type="Sprite2D" parent="Panel/LabelMargins"]
+visible = false
+position = Vector2(240, 184)
 texture = ExtResource("9_n8s2h")
 
-[node name="Croissant" type="Sprite2D" parent="Panel"]
-position = Vector2(328, 231)
+[node name="Croissant" type="Sprite2D" parent="Panel/LabelMargins"]
+visible = false
+position = Vector2(240, 232)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("10_s63co")
 
-[node name="IngredientsLabel" type="RichTextLabel" parent="Panel"]
-clip_contents = false
-layout_mode = 2
-offset_left = 64.0
-offset_top = 36.0
-offset_right = 200.0
-offset_bottom = 68.0
-theme_override_font_sizes/normal_font_size = 18
-bbcode_enabled = true
-text = "[center][bgcolor=blue]Ingredients:"
-fit_content = true
-tab_size = 10
-text_direction = 1
+[node name="NumberMargins" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 64.0
+offset_right = 376.0
+offset_bottom = 376.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="CraftsLabel" type="RichTextLabel" parent="Panel"]
-clip_contents = false
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/NumberMargins"]
 layout_mode = 2
-offset_left = 352.0
-offset_top = 36.0
-offset_right = 544.0
-offset_bottom = 60.0
-theme_override_font_sizes/normal_font_size = 18
-bbcode_enabled = true
-text = "[center][bgcolor=red]Crafts:"
-fit_content = true
-tab_size = 10
-text_direction = 1
+theme_override_constants/separation = 96
 
-[node name="IngredientsGrid" type="GridContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = 76.0
-offset_right = -320.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="IngredientsGrid" type="GridContainer" parent="Panel/NumberMargins/HBoxContainer2"]
+layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 32
 
-[node name="Money" type="Label" parent="Panel/IngredientsGrid"]
+[node name="Money" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid"]
 layout_mode = 2
 text = "Money:"
 
-[node name="CoffeeGrounds" type="Label" parent="Panel/IngredientsGrid"]
+[node name="CoffeeGrounds" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid"]
 layout_mode = 2
 text = "Grounds:"
 
-[node name="Flour" type="Label" parent="Panel/IngredientsGrid"]
+[node name="Flour" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid"]
 layout_mode = 2
 text = "Flour:"
 
-[node name="Milk" type="Label" parent="Panel/IngredientsGrid"]
+[node name="Milk" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid"]
 layout_mode = 2
 text = "Milk:"
 
-[node name="Eggs" type="Label" parent="Panel/IngredientsGrid"]
+[node name="Eggs" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid"]
 layout_mode = 2
 text = "Eggs:"
 
-[node name="IngredientsGrid2" type="GridContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 352.0
-offset_top = 82.0
-offset_right = -32.0
-offset_bottom = -26.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="IngredientsGrid2" type="GridContainer" parent="Panel/NumberMargins/HBoxContainer2"]
+layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 32
 
-[node name="Coffee" type="Label" parent="Panel/IngredientsGrid2"]
+[node name="Coffee" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid2"]
 layout_mode = 2
 text = "Coffee:"
 
-[node name="IcedCoffee" type="Label" parent="Panel/IngredientsGrid2"]
+[node name="IcedCoffee" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid2"]
 layout_mode = 2
 text = "Iced Coffee:"
 
-[node name="BreadRoll" type="Label" parent="Panel/IngredientsGrid2"]
+[node name="BreadRoll" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid2"]
 layout_mode = 2
 text = "Bread:"
 
-[node name="Croissant" type="Label" parent="Panel/IngredientsGrid2"]
+[node name="Croissant" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid2"]
 layout_mode = 2
 text = "Croissants:"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel"]
+libraries = {
+"": SubResource("AnimationLibrary_dtkmo")
+}

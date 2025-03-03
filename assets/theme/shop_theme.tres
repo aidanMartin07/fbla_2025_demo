@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c8jy7bmstbu05"]
+
+[ext_resource type="FontFile" uid="uid://dkh8nom315mwk" path="res://assets/theme/VCR_OSD_MONO_1.001.ttf" id="1_6o572"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgom5"]
+bg_color = Color(0.428184, 0.392122, 0.381301, 1)
+border_color = Color(0.31823, 0.288864, 0.280051, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwi6r"]
+bg_color = Color(0.501961, 0.462745, 0.45098, 1)
+border_width_bottom = 8
+border_color = Color(0.31823, 0.288864, 0.280051, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aj2so"]
+bg_color = Color(0.256542, 0.231581, 0.224089, 1)
+border_color = Color(0.141804, 0.125713, 0.120884, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fqq"]
+bg_color = Color(0.373721, 0.336414, 0.310082, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.193647, 0.172131, 0.155381, 1)
+
+[resource]
+default_font = ExtResource("1_6o572")
+Button/styles/hover = SubResource("StyleBoxFlat_pgom5")
+Button/styles/normal = SubResource("StyleBoxFlat_fwi6r")
+Button/styles/pressed = SubResource("StyleBoxFlat_aj2so")
+Panel/styles/panel = SubResource("StyleBoxFlat_27fqq")

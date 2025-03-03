@@ -12,6 +12,8 @@ const SPEED: float = 11000.0
 
 var inventory = preload("res://entities/player/inventory.tscn")
 var inventory_open: bool = false
+signal close_inventory
+
 
 func _init() -> void:
 	PlayerManager.player_instance = self 
@@ -33,10 +35,11 @@ func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_pressed("tab")):
 		if(!inventory_open):
 			var add_inv = inventory.instantiate()
+			add_inv.player = self
 			canvas_layer.add_child(add_inv)
 			inventory_open = true
 		else:
-			canvas_layer.get_node("Inventory").queue_free()
+			emit_signal("close_inventory")
 			inventory_open = false
 	
 

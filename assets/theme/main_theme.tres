@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://btbc3n3weqgqw"]
+
+[ext_resource type="FontFile" uid="uid://dkh8nom315mwk" path="res://assets/theme/VCR_OSD_MONO_1.001.ttf" id="1_wlfbp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_db2mj"]
+bg_color = Color(0.642125, 0.353477, 0.251733, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.247059, 0.12549, 0.0705882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkwsb"]
+bg_color = Color(0.816672, 0.49262, 0.379179, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.507601, 0.284735, 0.184429, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxd1l"]
+bg_color = Color(0.642125, 0.353477, 0.251733, 1)
+border_width_bottom = 10
+border_color = Color(0.498039, 0.254902, 0.168627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4p5jq"]
+bg_color = Color(0.260386, 0.191304, 0.15895, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.498039, 0.254902, 0.168627, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a61iy"]
+bg_color = Color(0.669636, 0.511637, 0.400981, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.12549, 0.0705882, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nbvg"]
+bg_color = Color(0.291097, 0.206023, 0.145735, 1)
+
+[resource]
+default_font = ExtResource("1_wlfbp")
+Button/styles/hover = SubResource("StyleBoxFlat_db2mj")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_qkwsb")
+Button/styles/normal = SubResource("StyleBoxFlat_nxd1l")
+Button/styles/pressed = SubResource("StyleBoxFlat_qkwsb")
+Panel/styles/panel = SubResource("StyleBoxFlat_4p5jq")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_a61iy")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_5nbvg")

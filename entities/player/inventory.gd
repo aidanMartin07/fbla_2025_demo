@@ -1,20 +1,24 @@
 extends Control
 
-@onready var money: Label = $Panel/IngredientsGrid/Money
-@onready var coffee_grounds: Label = $Panel/IngredientsGrid/CoffeeGrounds
-@onready var flour: Label = $Panel/IngredientsGrid/Flour
-@onready var milk: Label = $Panel/IngredientsGrid/Milk
-@onready var eggs: Label = $Panel/IngredientsGrid/Eggs
+@export var player: CharacterBody2D
 
-@onready var coffee: Label = $Panel/IngredientsGrid2/Coffee
-@onready var iced_coffee: Label = $Panel/IngredientsGrid2/IcedCoffee
-@onready var bread_roll: Label = $Panel/IngredientsGrid2/BreadRoll
-@onready var croissant: Label = $Panel/IngredientsGrid2/Croissant
+@onready var money: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid/Money
+@onready var coffee_grounds: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid/CoffeeGrounds
+@onready var flour: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid/Flour
+@onready var milk: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid/Milk
+@onready var eggs: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid/Eggs
+
+@onready var coffee: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid2/Coffee
+@onready var iced_coffee: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid2/IcedCoffee
+@onready var bread_roll: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid2/BreadRoll
+@onready var croissant: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid2/Croissant
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	#plays open animation and connects to player closing inv
+	$Panel/AnimationPlayer.play("open")
+	player.close_inventory.connect(close)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -29,3 +33,9 @@ func _process(delta: float) -> void:
 	iced_coffee.text = "Iced Coffee : " + str(PlayerManager.completed_crafts["iced_coffee"])
 	bread_roll.text = "Bread : " + str(PlayerManager.completed_crafts["bread_roll"])
 	croissant.text = "Croissants : " + str(PlayerManager.completed_crafts["croissant"])
+
+func close() -> void:
+	#plays the open animation backwards and removes node from tree after finished
+	$Panel/AnimationPlayer.play_backwards("open")
+	await get_tree().create_timer(0.3).timeout
+	$".".queue_free()

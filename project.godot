@@ -23,7 +23,6 @@ TotalTime="*res://time/total_time.gd"
 
 [display]
 
-window/size/mode=3
 window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
@@ -38,7 +37,8 @@ Player=""
 
 [gui]
 
-theme/custom_font="res://assets/font/VCR_OSD_MONO_1.001.ttf"
+theme/custom="res://assets/theme/main_theme.tres"
+theme/custom_font="res://assets/theme/VCR_OSD_MONO_1.001.ttf"
 
 [input]
 

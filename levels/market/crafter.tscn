@@ -29,9 +29,9 @@ offset_bottom = 163.0
 [node name="CraftButton" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 184.0
+offset_top = 174.0
 offset_right = 128.0
-offset_bottom = 207.0
+offset_bottom = 209.0
 text = "Craft"
 
 [node name="Amount" type="RichTextLabel" parent="Panel"]
