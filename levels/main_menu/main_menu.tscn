@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://wltcqcu10f3c"]
 
-[ext_resource type="Script" path="res://levels/main_menu/main_menu.gd" id="1_xi86u"]
+[ext_resource type="Script" uid="uid://dfjttflb1nvpj" path="res://levels/main_menu/main_menu.gd" id="1_xi86u"]
 [ext_resource type="Texture2D" uid="uid://cr7xouh0gua0r" path="res://ui/berkly5.png" id="2_3gqw5"]
 [ext_resource type="Theme" uid="uid://btbc3n3weqgqw" path="res://assets/theme/main_theme.tres" id="3_4skq4"]
 
@@ -82,4 +82,4 @@ text = "[center]Perspicacious Bakery"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="button_up" from="Quit" to="." method="_on_quit"]
-[connection signal="pressed" from="Tutorial" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]

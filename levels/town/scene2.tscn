@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d2p6efp7jc5l0" path="res://assets/tilesets/15_Police_Station_32x32.png" id="13_xtku1"]
 [ext_resource type="Texture2D" uid="uid://bcd8wjmu868s7" path="res://assets/tilesets/17_Garden_32x32.png" id="14_crynf"]
 [ext_resource type="Texture2D" uid="uid://m6afw86r1ymw" path="res://assets/tilesets/10_Vehicles_32x32.png" id="15_8167v"]
-[ext_resource type="Script" path="res://car.gd" id="16_gqrju"]
+[ext_resource type="Script" uid="uid://v8nmsvh6o0v8" path="res://car.gd" id="16_gqrju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ahgn"]
 texture = ExtResource("1_6oag6")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://5aio7bl5bvkw"]
 
-[ext_resource type="Script" path="res://time/rent_cycle.gd" id="1_p3nbf"]
+[ext_resource type="Script" uid="uid://vdywadlnbp6j" path="res://time/rent_cycle.gd" id="1_p3nbf"]
 
 [node name="TimeLabel" type="Label"]
 anchors_preset = 3

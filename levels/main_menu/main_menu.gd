@@ -23,3 +23,8 @@ func _on_start_2_button_up() -> void:
 
 func _on_quit() -> void:
 	get_tree().quit() # Replace with function body.
+
+
+func _on_tutorial_pressed() -> void:
+	pass
+	#get_tree().change_scene_to_file("res://levels")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://c3q5nvmopu2n7"]
 
 [ext_resource type="TileSet" uid="uid://2tcyrk04i7aa" path="res://assets/tilemaps/indoor_basic.tres" id="1_gjj8n"]
-[ext_resource type="Script" path="res://levels/shop/shop_container.gd" id="2_c360s"]
+[ext_resource type="Script" uid="uid://b8j0k2osy8e4q" path="res://levels/shop/shop_container.gd" id="2_c360s"]
 [ext_resource type="Theme" uid="uid://c8jy7bmstbu05" path="res://assets/theme/shop_theme.tres" id="3_b8pin"]
 [ext_resource type="Texture2D" uid="uid://bmjavsdyhdtqq" path="res://assets/icons/cofee_grounds.png" id="3_cfln2"]
 [ext_resource type="Texture2D" uid="uid://dudjtdh0pvorn" path="res://assets/icons/egg_carton.png" id="4_mx3pp"]

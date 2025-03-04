@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cinnao4qbuhsx"]
 
-[ext_resource type="Script" path="res://levels/market/crafter.gd" id="1_3hrht"]
+[ext_resource type="Script" uid="uid://ddrvxsa4bstrs" path="res://levels/market/crafter.gd" id="1_3hrht"]
 
 [node name="Crafter" type="Control"]
 layout_mode = 3

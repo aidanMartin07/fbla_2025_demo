@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://6i6c6vq6cxqj"]
 
 [ext_resource type="TileSet" uid="uid://bvw8uilr1iwm8" path="res://assets/tilesets/tileset_main.tres" id="1_4sj1r"]
-[ext_resource type="Script" path="res://levels/lose_screen/buttons.gd" id="2_1qd0t"]
+[ext_resource type="Script" uid="uid://1ilmj4n0kta8" path="res://levels/lose_screen/buttons.gd" id="2_1qd0t"]
 [ext_resource type="Texture2D" uid="uid://ck5r55ptb6mxe" path="res://assets/piggybank.png" id="2_30d4t"]
 
 [node name="World" type="Node2D"]

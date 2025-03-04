@@ -1,22 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://snocwelvtr7f"]
 
-[ext_resource type="Script" path="res://entities/level_transition_box/level_transition.gd" id="1_qkmy4"]
-
-[sub_resource type="Animation" id="Animation_uta21"]
-resource_name = "hover"
-length = 2.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Button:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 2.2),
-"transitions": PackedFloat32Array(1, 0.392292, 0.0824694),
-"update": 0,
-"values": [Vector2(495, 537), Vector2(495, 525), Vector2(495, 523)]
-}
+[ext_resource type="Script" uid="uid://d1tmea3310ui3" path="res://entities/level_transition_box/level_transition.gd" id="1_qkmy4"]
 
 [sub_resource type="Animation" id="Animation_ykhhe"]
 length = 0.001
@@ -31,22 +15,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(495, 535)]
-}
-
-[sub_resource type="Animation" id="Animation_y22gk"]
-resource_name = "hover_back"
-length = 2.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Button:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.96667, 2.2),
-"transitions": PackedFloat32Array(1, 0.392, 0.0824),
-"update": 0,
-"values": [Vector2(495, 523), Vector2(495, 535), Vector2(495, 537)]
 }
 
 [sub_resource type="Animation" id="Animation_qp5ym"]
@@ -65,12 +33,44 @@ tracks/0/keys = {
 "values": [Vector2(495, 650), Vector2(495, 537)]
 }
 
+[sub_resource type="Animation" id="Animation_uta21"]
+resource_name = "hover"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.2),
+"transitions": PackedFloat32Array(1, 0.392292, 0.0824694),
+"update": 0,
+"values": [Vector2(495, 537), Vector2(495, 525), Vector2(495, 523)]
+}
+
+[sub_resource type="Animation" id="Animation_y22gk"]
+resource_name = "hover_back"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667, 2.2),
+"transitions": PackedFloat32Array(1, 0.392, 0.0824),
+"update": 0,
+"values": [Vector2(495, 523), Vector2(495, 535), Vector2(495, 537)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k1tbh"]
 _data = {
-"RESET": SubResource("Animation_ykhhe"),
-"appear": SubResource("Animation_qp5ym"),
-"hover": SubResource("Animation_uta21"),
-"hover_back": SubResource("Animation_y22gk")
+&"RESET": SubResource("Animation_ykhhe"),
+&"appear": SubResource("Animation_qp5ym"),
+&"hover": SubResource("Animation_uta21"),
+&"hover_back": SubResource("Animation_y22gk")
 }
 
 [node name="Level_Transition_Box" type="Control"]
@@ -99,7 +99,7 @@ text = "[E] Transition"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_k1tbh")
+&"": SubResource("AnimationLibrary_k1tbh")
 }
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

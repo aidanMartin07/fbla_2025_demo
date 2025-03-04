@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d0y5y7xw4ev1k"]
 
-[ext_resource type="Script" path="res://entities/player/inventory.gd" id="1_wjth3"]
+[ext_resource type="Script" uid="uid://d2gaeqyt1tko8" path="res://entities/player/inventory.gd" id="1_wjth3"]
 [ext_resource type="Texture2D" uid="uid://cudf48ji3omp6" path="res://assets/icons/money.png" id="2_466m0"]
 [ext_resource type="Texture2D" uid="uid://bmjavsdyhdtqq" path="res://assets/icons/cofee_grounds.png" id="3_5sbsa"]
 [ext_resource type="Texture2D" uid="uid://cwlexn21v7wkn" path="res://assets/icons/flour.png" id="4_lcbqt"]
@@ -10,6 +10,21 @@
 [ext_resource type="Texture2D" uid="uid://eoxk3fpsayio" path="res://assets/icons/iced_coffee.png" id="8_ji8xj"]
 [ext_resource type="Texture2D" uid="uid://dgsfqibawkkd1" path="res://assets/icons/bread_loaf.png" id="9_n8s2h"]
 [ext_resource type="Texture2D" uid="uid://cgs0vwnoajkk8" path="res://assets/icons/croissant.png" id="10_s63co"]
+
+[sub_resource type="Animation" id="Animation_jnmm5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-576, -196)]
+}
 
 [sub_resource type="Animation" id="Animation_6166p"]
 resource_name = "open"
@@ -27,25 +42,10 @@ tracks/0/keys = {
 "values": [Vector2(-1000, -196), Vector2(-576, -196), Vector2(-566, -196), Vector2(-576, -196)]
 }
 
-[sub_resource type="Animation" id="Animation_jnmm5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-576, -196)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dtkmo"]
 _data = {
-"RESET": SubResource("Animation_jnmm5"),
-"open": SubResource("Animation_6166p")
+&"RESET": SubResource("Animation_jnmm5"),
+&"open": SubResource("Animation_6166p")
 }
 
 [node name="Inventory" type="Control"]
@@ -226,5 +226,5 @@ text = "Croissants:"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel"]
 libraries = {
-"": SubResource("AnimationLibrary_dtkmo")
+&"": SubResource("AnimationLibrary_dtkmo")
 }
