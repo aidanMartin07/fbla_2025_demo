@@ -84,5 +84,6 @@ func _on_timer_timeout() -> void:
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	animated_sprite_2d.play("side_to_side")
+	print("finished")
 	on_point = true
 	make_path()

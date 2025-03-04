@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://cxxb5cnwac8b8"]
 
 [ext_resource type="TileSet" uid="uid://bvw8uilr1iwm8" path="res://assets/tilesets/tileset_main.tres" id="1_5xrg2"]
-[ext_resource type="Script" path="res://levels/win_screen/buttons.gd" id="2_48mbs"]
+[ext_resource type="Script" uid="uid://d3w3km6js7wu6" path="res://levels/win_screen/buttons.gd" id="2_48mbs"]
 [ext_resource type="Texture2D" uid="uid://j1psyxt80ct1" path="res://assets/gold_pile.png" id="2_htyuu"]
 
 [node name="World" type="Node2D"]

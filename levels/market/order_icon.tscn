@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdn0i8vtasbna"]
 
-[ext_resource type="Script" path="res://levels/market/order_icon.gd" id="1_sm538"]
+[ext_resource type="Script" uid="uid://ocpgvyxhamgm" path="res://levels/market/order_icon.gd" id="1_sm538"]
 
 [node name="OrderIcon" type="Control"]
 layout_mode = 3

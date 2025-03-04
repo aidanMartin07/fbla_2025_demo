@@ -1,9 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://wltcqcu10f3c"]
+[gd_scene load_steps=6 format=3 uid="uid://wltcqcu10f3c"]
 
-[ext_resource type="Script" path="res://levels/main_menu/main_menu.gd" id="1_xi86u"]
+[ext_resource type="Script" uid="uid://dfjttflb1nvpj" path="res://levels/main_menu/main_menu.gd" id="1_xi86u"]
 [ext_resource type="Texture2D" uid="uid://cr7xouh0gua0r" path="res://ui/berkly5.png" id="2_3gqw5"]
+[ext_resource type="Theme" uid="uid://btbc3n3weqgqw" path="res://assets/theme/main_theme.tres" id="3_4skq4"]
 
 [sub_resource type="Theme" id="Theme_xeosw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxr5w"]
+bg_color = Color(0.643137, 0.352941, 0.25098, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.498039, 0.254902, 0.168627, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -25,7 +38,7 @@ offset_left = 845.0
 offset_top = 192.0
 offset_right = 1124.0
 offset_bottom = 282.0
-theme = SubResource("Theme_xeosw")
+theme = ExtResource("3_4skq4")
 theme_override_font_sizes/font_size = 32
 text = "Start!"
 
@@ -55,6 +68,7 @@ offset_left = 600.0
 offset_top = 32.0
 offset_right = 1123.0
 offset_bottom = 159.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lxr5w")
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -68,4 +82,4 @@ text = "[center]Perspicacious Bakery"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="button_up" from="Quit" to="." method="_on_quit"]
-[connection signal="pressed" from="Tutorial" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]

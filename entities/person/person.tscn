@@ -1,8 +1,8 @@
 [gd_scene load_steps=114 format=3 uid="uid://bf0qjpbj6w6dj"]
 
-[ext_resource type="Script" path="res://entities/person/person_movement.gd" id="1_3lc66"]
+[ext_resource type="Script" uid="uid://binfuccun6tar" path="res://entities/person/person_movement.gd" id="1_3lc66"]
 [ext_resource type="Texture2D" uid="uid://ks173ef84q4i" path="res://assets/characters/simple_npc.png" id="1_xtshc"]
-[ext_resource type="Script" path="res://entities/person/person_sprite_2d.gd" id="3_iujey"]
+[ext_resource type="Script" uid="uid://dasmv0gjtqgf2" path="res://entities/person/person_sprite_2d.gd" id="3_iujey"]
 [ext_resource type="Texture2D" uid="uid://dab5bcob78fmh" path="res://assets/characters/outfits/Outfit_Postman_With_Hat_32x32.png" id="4_uyx2x"]
 [ext_resource type="Texture2D" uid="uid://dyccf3pn8mu42" path="res://assets/characters/outfits/Outfit_Firefighter_32x32.png" id="5_7qlb1"]
 [ext_resource type="Texture2D" uid="uid://dp4jlikl6lti4" path="res://assets/characters/outfits/Accessory_22_Scout_Snapback_32x32.png" id="6_4nebq"]

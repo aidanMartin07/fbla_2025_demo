@@ -3,8 +3,8 @@
 [ext_resource type="TileSet" uid="uid://bvw8uilr1iwm8" path="res://assets/tilesets/tileset_main.tres" id="1_jkoif"]
 [ext_resource type="PackedScene" uid="uid://1rhepn4vjimj" path="res://entities/player/player.tscn" id="3_4pjm2"]
 [ext_resource type="PackedScene" uid="uid://bf0qjpbj6w6dj" path="res://entities/person/person.tscn" id="3_jhulr"]
-[ext_resource type="Script" path="res://levels/town/transition_manager.gd" id="4_4q04i"]
-[ext_resource type="Script" path="res://levels/town/canvas_layer.gd" id="5_rc63r"]
+[ext_resource type="Script" uid="uid://c17cpt7qvdpg7" path="res://levels/town/transition_manager.gd" id="4_4q04i"]
+[ext_resource type="Script" uid="uid://bw7ymkokqgqtl" path="res://levels/town/canvas_layer.gd" id="5_rc63r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1ghs"]
 size = Vector2(55, 32)

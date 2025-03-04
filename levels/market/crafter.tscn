@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cinnao4qbuhsx"]
 
-[ext_resource type="Script" path="res://levels/market/crafter.gd" id="1_3hrht"]
+[ext_resource type="Script" uid="uid://ddrvxsa4bstrs" path="res://levels/market/crafter.gd" id="1_3hrht"]
 
 [node name="Crafter" type="Control"]
 layout_mode = 3
@@ -29,9 +29,9 @@ offset_bottom = 163.0
 [node name="CraftButton" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 184.0
+offset_top = 174.0
 offset_right = 128.0
-offset_bottom = 207.0
+offset_bottom = 209.0
 text = "Craft"
 
 [node name="Amount" type="RichTextLabel" parent="Panel"]
