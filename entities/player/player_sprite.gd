@@ -3,11 +3,11 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animated_sprite_2d: AnimationController = $AnimatedSprite2D
-@onready var coords: Label = $"../CanvasLayer/coords"
-@onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
-@onready var player: Node2D = $Player
+@onready var coords: Label = $CanvasLayer/coords
 
-const SPEED: float = 11000.0
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+
+const SPEED: float = 16000.0 #11000
 #const JUMP_VELOCITY = -400.0
 
 var inventory = preload("res://entities/player/inventory.tscn")

@@ -43,8 +43,8 @@ var pause_menu_instance: bool = false
 
 #holds position values for last player position in town before entering new building
 var last_town_pos: Dictionary = {
-	"x": -32,
-	"y": -130,
+	"x": 512,
+	"y": -72,
 }
 
 var reputation: float = 1
@@ -88,10 +88,9 @@ func _process(delta: float) -> void:
 		win = true
 		player_instance = null
 		get_tree().change_scene_to_file("res://levels/win_screen/win_screen.tscn")
-	
-	
 
-	
+
+
 	if(Input.is_action_just_pressed("esc") and player_instance != null):
 		if(!pause_menu_instance):
 			pause_menu_instance = true

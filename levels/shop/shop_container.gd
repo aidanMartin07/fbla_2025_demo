@@ -44,7 +44,7 @@ func add_upgrade_to_inv(upgrade:String):
 
 
 func _on_exit_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/town/town.tscn")
+	get_tree().change_scene_to_file("res://levels/town_2/town.tscn")
 
 
 func _on_coffee_purchase_button_up() -> void:
