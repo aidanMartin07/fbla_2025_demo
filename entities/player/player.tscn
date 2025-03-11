@@ -419,35 +419,28 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jscl"]
-size = Vector2(20, 17)
+size = Vector2(20, 20.5)
 
-[node name="Player" type="Node2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 y_sort_enabled = true
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_pyydl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_mw072")
 animation = &"walk_up"
 script = ExtResource("3_cc3l1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 16)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17.75)
 shape = SubResource("RectangleShape2D_1jscl")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" groups=["Player"]]
+[node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
 zoom = Vector2(2, 2)
-limit_left = -800
-limit_top = -768
-limit_right = 800
-limit_bottom = 768
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="coords" type="Label" parent="CanvasLayer"]
-visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("4_763m8")

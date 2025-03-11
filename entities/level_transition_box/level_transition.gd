@@ -3,11 +3,15 @@ extends Control
 var current_level: String
 var next_level: String = "res://levels/market/market.tscn"
 
+const LOADING_SCREEN = preload("res://levels/loading_screen/loading_screen.tscn")
+
 func set_next_level(level: String):
 	self.next_level = level
 
 func load_next_scene(next_level: String):
-	get_tree().change_scene_to_file(next_level)
+	var loading_scene = LOADING_SCREEN.instantiate()
+	loading_scene.next_scene = self.next_level
+	add_child(loading_scene)
 
 
 # Called when the node enters the scene tree for the first time.
