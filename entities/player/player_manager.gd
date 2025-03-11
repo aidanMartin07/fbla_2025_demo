@@ -94,8 +94,8 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("esc") and player_instance != null):
 		if(!pause_menu_instance):
 			pause_menu_instance = true
-			player_instance.get_parent().get_node("CanvasLayer").add_child(pause_menu.instantiate())
-			player_instance.get_parent().get_node("CanvasLayer/PauseMenu").pause()
+			player_instance.get_node("CanvasLayer").add_child(pause_menu.instantiate())
+			player_instance.get_node("CanvasLayer/PauseMenu").pause()
 		#else:
 			#player_instance.get_parent().get_node("CanvasLayer/PauseMenu").queue_free()
 			#pause_menu_instance = false
