@@ -1,6 +1,6 @@
 extends Control
 
-var next_scene: String = "res://levels/town/town.tscn"
+var next_scene: String = "res://levels/town_2/town.tscn"
 
 @onready var progress_bar: ProgressBar = $ProgressBar
 
