@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgj0eqk3yb07y"]
+
+[ext_resource type="Script" uid="uid://ciunfe8nim421" path="res://ui/tutorialscript.gd" id="1_bwtbu"]
+[ext_resource type="Texture2D" uid="uid://c0u2h0cemjweh" path="res://ui/FBLA Regionals 2025.png" id="2_h3p6s"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bwtbu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 659.0
+color = Color(0.160784, 0.156863, 0.203922, 1)
+
+[node name="FblaRegionals2025" type="Sprite2D" parent="."]
+position = Vector2(585, 323)
+scale = Vector2(1.23519, 1.23519)
+texture = ExtResource("2_h3p6s")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 787.0
+offset_top = 511.0
+offset_right = 1007.0
+offset_bottom = 591.0
+theme_override_font_sizes/font_size = 32
+text = "Continue!"
+
+[connection signal="button_up" from="Button" to="." method="_leave_tutorial"]
