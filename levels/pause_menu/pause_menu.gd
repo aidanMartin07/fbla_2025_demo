@@ -1,6 +1,7 @@
 extends Control
 
 func resume():
+	TotalTime.time_going = true
 	get_tree().paused = false
 	#$AnimationPlayer.play_backwards("blur")
 	PlayerManager.pause_menu_instance = false
@@ -9,6 +10,7 @@ func resume():
 	self.queue_free()
 	
 func pause():
+	TotalTime.time_going = false
 	get_tree().paused = true
 	$AnimationPlayer.play("open")
 	#$AnimationPlayer.play("blur")

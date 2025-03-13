@@ -1520,11 +1520,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmo1d"]
-size = Vector2(17, 25.5)
+size = Vector2(17, 18)
 
 [node name="NPC" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 32
+motion_mode = 1
 script = ExtResource("1_y6suo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -1535,11 +1536,10 @@ frame_progress = 0.670757
 script = ExtResource("6_hiv41")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 19.25)
+position = Vector2(0.5, 21)
 shape = SubResource("RectangleShape2D_dmo1d")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 2.5
 debug_enabled = true
 
 [node name="IdleTimer" type="Timer" parent="."]

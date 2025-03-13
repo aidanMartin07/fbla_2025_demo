@@ -73,6 +73,7 @@ func _process(delta: float) -> void:
 	if(int(TotalTime.total_time% 180) == 0 and TotalTime.total_time != 0 
 	and just_paid_rent == false):
 		PlayerManager.inventory["money"] -= (rent - reputation)
+		TotalTime.days += 1
 		just_paid_rent = true
 	
 	#stops rent from being paid for multiple frames

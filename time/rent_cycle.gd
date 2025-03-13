@@ -1,22 +1,23 @@
 extends Label
 @onready var label: Label = $"."
 
-var time = TotalTime.total_time
+var rent_time = TotalTime.total_time
 
 func _physics_process(delta: float) -> void:
-	time = float(time) + delta
+	#time = float(time) + delta
 	update_ui()
 
 func update_ui():
-	var formatted_time = str(time)
+	rent_time = TotalTime.time -(180 * TotalTime.days)
+	var formatted_time = str(rent_time)
 	var decimal_index = formatted_time.find(".")
 	
 	if(decimal_index >0):
 		formatted_time = formatted_time.left(decimal_index + 0)
-		
+	
 	TotalTime.total_time = int(formatted_time)
 	
-	
+	#print(TotalTime.total_time)
 	label.text = "Time:" + formatted_time
 
 # Called when the node enters the scene tree for the first time.

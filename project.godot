@@ -23,8 +23,7 @@ TotalTime="*res://time/total_time.gd"
 
 [display]
 
-window/subwindows/embed_subwindows=false
-window/stretch/scale_mode="integer"
+window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
 [dotnet]

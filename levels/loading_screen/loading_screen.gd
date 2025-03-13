@@ -23,4 +23,5 @@ func _process(delta: float) -> void:
 		progress_bar.value = 100.0
 		var packed_scene = ResourceLoader.load_threaded_get(next_scene)
 		await get_tree().create_timer(0.5).timeout
+		TotalTime.time_going = true
 		get_tree().change_scene_to_packed(packed_scene)

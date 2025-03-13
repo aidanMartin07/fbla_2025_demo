@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdpp4oblcpmhh"]
+
+[ext_resource type="Script" uid="uid://cfcqhw7h72k7l" path="res://managers/day_night/day_night_cycle.gd" id="1_kx5u5"]
+
+[node name="DayNightCycle" type="Node2D"]
+script = ExtResource("1_kx5u5")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
