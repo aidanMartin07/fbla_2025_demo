@@ -10,6 +10,8 @@ func _ready() -> void:
 	ResourceLoader.load_threaded_request(next_scene,"")
 
 func _process(delta: float) -> void:
+	TotalTime.time_going = false
+	DayNightCycle.active = false
 	var progress = []
 	var loaded_status = ResourceLoader.load_threaded_get_status(next_scene, progress)
 	var new_progress = progress[0] * 100
@@ -24,4 +26,5 @@ func _process(delta: float) -> void:
 		var packed_scene = ResourceLoader.load_threaded_get(next_scene)
 		await get_tree().create_timer(0.5).timeout
 		TotalTime.time_going = true
+		DayNightCycle.active = true
 		get_tree().change_scene_to_packed(packed_scene)

@@ -4,6 +4,7 @@ class_name Player
 
 @onready var animated_sprite_2d: AnimationController = $AnimatedSprite2D
 @onready var coords: Label = $CanvasLayer/coords
+@onready var dialogue_interact: RayCast2D = $DialogueInteract
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
@@ -14,6 +15,7 @@ var inventory = preload("res://entities/player/inventory.tscn")
 var inventory_open: bool = false
 signal close_inventory
 
+var talking: bool = false
 
 func _init() -> void:
 	PlayerManager.player_instance = self 
@@ -46,7 +48,8 @@ func _physics_process(delta: float) -> void:
 	coords.text = "X:" + str(global_position.x) + "\nY:" + str(global_position.y) +"\nFPS:" + str(Engine.get_frames_per_second())
 
 	var direction := Input.get_vector("left", "right", "up", "down")
-	if direction:
+	if direction and !talking:
+		dialogue_interact.target_position = velocity.normalized() * 45
 		velocity = direction.normalized() * SPEED * delta
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * delta)

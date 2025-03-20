@@ -183,10 +183,6 @@ layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 32
 
-[node name="Money" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid"]
-layout_mode = 2
-text = "Money:"
-
 [node name="CoffeeGrounds" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid"]
 layout_mode = 2
 text = "Grounds:"
@@ -202,6 +198,10 @@ text = "Milk:"
 [node name="Eggs" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid"]
 layout_mode = 2
 text = "Eggs:"
+
+[node name="Money" type="Label" parent="Panel/NumberMargins/HBoxContainer2/IngredientsGrid"]
+layout_mode = 2
+text = "Money:"
 
 [node name="IngredientsGrid2" type="GridContainer" parent="Panel/NumberMargins/HBoxContainer2"]
 layout_mode = 2

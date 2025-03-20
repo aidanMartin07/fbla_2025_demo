@@ -1,0 +1,18 @@
+{
+	"npc_1": {
+		"tree": [
+			{
+				"branch_id": "npc_1_1",
+				"dialogs": []
+			},
+		],
+	},
+	"npc_2": {
+		"tree": [
+			{
+				"branch_id": "npc_2_1",
+				"dialogs": []
+			},
+		],
+	},
+}

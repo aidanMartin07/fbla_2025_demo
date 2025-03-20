@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=4 uid="uid://du8n1r2fu7hn6"]
+
+[ext_resource type="TileSet" uid="uid://burjyyjscdpp5" path="res://assets/tilesets/revamp/indoor_tileset.tres" id="1_je6u5"]
+[ext_resource type="PackedScene" uid="uid://1rhepn4vjimj" path="res://entities/player/player.tscn" id="2_8xud0"]
+[ext_resource type="Script" uid="uid://cg2clhw6e6efy" path="res://levels/small_house/transition_manager.gd" id="3_3yd16"]
+[ext_resource type="PackedScene" uid="uid://dixuj8cs4dp7e" path="res://entities/talking_npc/talking_npc.tscn" id="3_k4dr5"]
+[ext_resource type="Script" uid="uid://dnwf3ha7latv3" path="res://managers/day_night/lights.gd" id="4_r6cfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yd16"]
+size = Vector2(93, 30)
+
+[sub_resource type="Gradient" id="Gradient_k4dr5"]
+colors = PackedColorArray(0.471876, 0.471549, 4.81307e-07, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2bt58"]
+gradient = SubResource("Gradient_k4dr5")
+fill = 1
+fill_from = Vector2(0.529915, 0.5)
+fill_to = Vector2(0.0641026, 0.735043)
+
+[node name="World" type="Node2D"]
+
+[node name="GroundTiles" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="GroundTiles"]
+z_index = -4
+offset_left = -1236.0
+offset_top = -509.0
+offset_right = -1196.0
+offset_bottom = -469.0
+scale = Vector2(67.4263, 35.4343)
+color = Color(0, 0, 0, 1)
+
+[node name="Ground" type="TileMapLayer" parent="GroundTiles"]
+z_index = -3
+tile_map_data = PackedByteArray("AAD7/wAAAAALAAoAAAD7/wEAAAALAAkAAAD7/wIAAAAMAAkAAAD7/wMAAAALAAoAAAD7/wQAAAANAAoAAAD8/wAAAAANAAoAAAD8/wEAAAALAAkAAAD8/wIAAAALAAoAAAD8/wMAAAALAAoAAAD8/wQAAAANAAkAAAD9/wAAAAALAAkAAAD9/wEAAAALAAoAAAD9/wIAAAANAAkAAAD9/wMAAAALAAoAAAD9/wQAAAAMAAoAAAD+/wAAAAALAAkAAAD+/wEAAAALAAoAAAD+/wIAAAAMAAoAAAD+/wMAAAANAAoAAAD+/wQAAAANAAoAAAD//wAAAAAMAAkAAAD//wEAAAANAAkAAAD//wIAAAANAAkAAAD//wMAAAAMAAkAAAD//wQAAAALAAoAAAAAAAAAAAAMAAkAAAAAAAEAAAANAAoAAAAAAAIAAAAMAAoAAAAAAAMAAAALAAoAAAAAAAQAAAALAAkAAAABAAAAAAANAAkAAAABAAEAAAALAAkAAAABAAIAAAAMAAkAAAABAAMAAAANAAkAAAABAAQAAAAMAAoAAAACAAAAAAAMAAkAAAACAAEAAAALAAkAAAACAAIAAAANAAoAAAACAAMAAAANAAoAAAACAAQAAAAMAAkAAAADAAAAAAANAAoAAAADAAEAAAANAAoAAAADAAIAAAALAAkAAAADAAMAAAALAAkAAAADAAQAAAAMAAkAAAAEAAAAAAANAAkAAAAEAAEAAAALAAoAAAAEAAIAAAAMAAkAAAAEAAMAAAAMAAkAAAAEAAQAAAALAAoAAAD6/wAAAAALAAkAAAD6/wEAAAANAAkAAAD6/wIAAAAMAAkAAAD6/wMAAAAMAAoAAAD6/wQAAAAMAAoAAAAFAAAAAAAMAAoAAAAFAAEAAAALAAkAAAAFAAIAAAAMAAkAAAAFAAMAAAANAAkAAAAFAAQAAAANAAoAAAD6/wUAAAALAAkAAAD7/wUAAAALAAkAAAD8/wUAAAAMAAoAAAD9/wUAAAANAAoAAAD+/wUAAAAMAAoAAAD//wUAAAANAAkAAAAAAAUAAAANAAkAAAABAAUAAAAMAAoAAAACAAUAAAAMAAoAAAADAAUAAAANAAoAAAAEAAUAAAALAAoAAAAFAAUAAAALAAoAAAD8/wYAAAAMAAkAAAD9/wYAAAANAAoAAAD+/wYAAAANAAkAAAA=")
+tile_set = ExtResource("1_je6u5")
+
+[node name="YSortObject" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TalkingNPC" parent="YSortObject" node_paths=PackedStringArray("player") instance=ExtResource("3_k4dr5")]
+y_sort_enabled = true
+player = NodePath("../Player")
+skin_name = "alex"
+npc_id = "npc_1"
+person_name = "gronathan"
+
+[node name="Player" parent="YSortObject" instance=ExtResource("2_8xud0")]
+position = Vector2(-81, 183)
+
+[node name="GroundProps" type="TileMapLayer" parent="YSortObject"]
+tile_map_data = PackedByteArray("AAD9/wYAAAALABIAAAD+/wYAAAALABIAAAD8/wYAAAALABIAAAD6/wAAAAAPAA8AAAD+//7/AAASABYAAAAFAAAAAAAVAA8AAAADAP7/AAAYAA8AAAD9/wEAAAAJABIAAAD+/wEAAAALABIAAAD//wEAAAALABIAAAAAAAEAAAALABIAAAABAAEAAAALABIAAAACAAIAAAAKABMAAAACAAEAAAAKABIAAAABAAIAAAALABMAAAAAAAIAAAALABMAAAD//wIAAAALABMAAAD+/wIAAAALABMAAAD9/wIAAAAJABMAAAAEAAIAAAAXABQAAAADAAIAAAAXABQAAAA=")
+tile_set = ExtResource("1_je6u5")
+
+[node name="Walls" type="TileMapLayer" parent="YSortObject"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAGAP//AAAPAAMAAAAGAAAAAAAPAAQAAAAGAAEAAAAPAAMAAAAGAAIAAAAPAAQAAAAGAAMAAAAPAAMAAAAGAAQAAAAPAAMAAAAGAAUAAAAPAAQAAAAGAAYAAAAPAAUAAAAFAAYAAAANAAYAAAAEAAYAAAANAAYAAAADAAYAAAANAAYAAAACAAYAAAANAAYAAAABAAYAAAANAAYAAAAAAAYAAAANAAYAAAD//wYAAAAOAAUAAAD//wcAAAAOAAYAAAD9/wcAAAAMAAYAAAD+/wcAAAANAAYAAAD7/wcAAAALAAYAAAD8/wcAAAAMAAYAAAD7/wYAAAALAAUAAAD6/wYAAAAMAAYAAAD5/wYAAAAKAAUAAAD5/wQAAAAKAAMAAAD5/wUAAAAKAAQAAAD5/wIAAAAKAAMAAAD5/wMAAAAKAAQAAAD5/wAAAAAKAAMAAAD5/wEAAAAKAAQAAAD5////AAAKAAQAAAD6////AAAMAAMAAAD7////AAANAAMAAAD8////AAAMAAMAAAD9////AAANAAMAAAD+////AAAMAAMAAAD/////AAANAAMAAAAAAP//AAAMAAMAAAABAP//AAANAAMAAAACAP//AAAMAAMAAAADAP//AAANAAMAAAAEAP//AAAMAAMAAAAFAP//AAANAAMAAAD6//7/AAAMAAcAAAD7//7/AAANAAcAAAD8//7/AAAMAAcAAAD9//7/AAANAAcAAAD+//7/AAAMAAcAAAD///7/AAANAAcAAAAAAP7/AAAMAAcAAAABAP7/AAANAAcAAAACAP7/AAAMAAcAAAADAP7/AAANAAcAAAAEAP7/AAAMAAcAAAAFAP7/AAANAAcAAAD6//z/AAAMAAEAAAD6//3/AAAMAAIAAAD7//z/AAANAAEAAAD7//3/AAAMAAIAAAD8//z/AAAMAAEAAAD8//3/AAAMAAIAAAD9//z/AAANAAEAAAD9//3/AAAMAAIAAAD+//z/AAAMAAEAAAD+//3/AAAMAAIAAAD///z/AAANAAEAAAD///3/AAAMAAIAAAAAAPz/AAAMAAEAAAAAAP3/AAAMAAIAAAABAPz/AAANAAEAAAABAP3/AAAMAAIAAAACAPz/AAAMAAEAAAACAP3/AAAMAAIAAAADAPz/AAANAAEAAAADAP3/AAAMAAIAAAAEAPz/AAAMAAEAAAAEAP3/AAAMAAIAAAAFAPz/AAANAAEAAAAFAP3/AAAMAAIAAAAGAPz/AAAOAAEAAAAGAP3/AAAPAAMAAAAGAP7/AAAPAAMAAAD5//3/AAAKAAMAAAD5//z/AAALAAEAAAD5//7/AAAKAAMAAAA=")
+tile_set = ExtResource("1_je6u5")
+
+[node name="WallProps" type="TileMapLayer" parent="YSortObject"]
+y_sort_enabled = true
+tile_set = ExtResource("1_je6u5")
+
+[node name="TownEntrance" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TownEntrance"]
+position = Vector2(-79.5, 208)
+shape = SubResource("RectangleShape2D_3yd16")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="TransitionManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_3yd16")
+player = NodePath("../YSortObject/Player")
+level_scenes = Array[String](["res://levels/town_2/town.tscn"])
+
+[node name="Lights" type="Node2D" parent="."]
+script = ExtResource("4_r6cfi")
+metadata/_custom_type_script = "uid://dnwf3ha7latv3"
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights"]
+position = Vector2(173, -29)
+scale = Vector2(1.14063, 1.45313)
+texture = SubResource("GradientTexture2D_2bt58")
+
+[connection signal="body_entered" from="TownEntrance" to="TransitionManager" method="_on_town_entrance_body_entered"]
+[connection signal="body_exited" from="TownEntrance" to="TransitionManager" method="_on_town_entrance_body_exited"]

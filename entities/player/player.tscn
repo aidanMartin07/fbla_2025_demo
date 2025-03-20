@@ -1,8 +1,9 @@
-[gd_scene load_steps=60 format=3 uid="uid://1rhepn4vjimj"]
+[gd_scene load_steps=61 format=3 uid="uid://1rhepn4vjimj"]
 
 [ext_resource type="Script" uid="uid://b7ham12icelgm" path="res://entities/player/player_sprite.gd" id="1_pyydl"]
 [ext_resource type="Texture2D" uid="uid://cno7b20ncnrcw" path="res://assets/characters/Modern_Exteriors_Characters_Postman_32x32_1.png" id="2_qxw0h"]
 [ext_resource type="Script" uid="uid://c8til6f27rfao" path="res://entities/player/player_animation_controller.gd" id="3_cc3l1"]
+[ext_resource type="Script" uid="uid://cqvsowgdeatsq" path="res://entities/player/dialogue_interact.gd" id="4_8fjmc"]
 [ext_resource type="FontFile" uid="uid://dkh8nom315mwk" path="res://assets/theme/VCR_OSD_MONO_1.001.ttf" id="4_763m8"]
 [ext_resource type="PackedScene" uid="uid://5aio7bl5bvkw" path="res://time/RentCycle.tscn" id="4_p6k1v"]
 
@@ -421,7 +422,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jscl"]
 size = Vector2(20, 20.5)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 script = ExtResource("1_pyydl")
 
@@ -437,6 +438,11 @@ shape = SubResource("RectangleShape2D_1jscl")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
 zoom = Vector2(2, 2)
+
+[node name="DialogueInteract" type="RayCast2D" parent="."]
+position = Vector2(0, 10)
+target_position = Vector2(0, -40)
+script = ExtResource("4_8fjmc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

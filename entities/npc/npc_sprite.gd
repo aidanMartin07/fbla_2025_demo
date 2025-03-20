@@ -14,7 +14,7 @@ var npc_name: String
 var direction: String
 
 func _ready() -> void:
-	npc_name = npc.person_name
+	npc_name = npc.skin_name
 
 func play_movement_animation(velocity: Vector2) -> void:
 	var dir = abs(velocity.y) > abs(velocity.x)
@@ -33,8 +33,8 @@ func play_movement_animation(velocity: Vector2) -> void:
 			direction = "left"
 			play(npc_name + "_walk_left")
 
-func play_idle_animation(down: bool) -> void:
-	if(down):
-		play(npc_name + "_idle_down")
+func play_idle_animation(dir: String) -> void:
+	if(dir):
+		play(npc_name + "_idle_" + dir)
 	else:
-		play(npc_name + "_idle_" + direction)
+		play(npc_name + "_idle_down")

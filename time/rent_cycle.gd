@@ -8,7 +8,7 @@ func _physics_process(delta: float) -> void:
 	update_ui()
 
 func update_ui():
-	rent_time = TotalTime.time -(180 * TotalTime.days)
+	rent_time = TotalTime.elapsed_time -(180 * TotalTime.days)
 	var formatted_time = str(rent_time)
 	var decimal_index = formatted_time.find(".")
 	

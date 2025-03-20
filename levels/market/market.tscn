@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://d3yf8sa6e7l7s"]
+[gd_scene load_steps=13 format=4 uid="uid://d3yf8sa6e7l7s"]
 
 [ext_resource type="TileSet" uid="uid://2tcyrk04i7aa" path="res://assets/tilemaps/indoor_basic.tres" id="1_nbryx"]
 [ext_resource type="Script" uid="uid://c03nmdlf4a86o" path="res://levels/market/control.gd" id="2_5x6aq"]
@@ -9,6 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://dgsfqibawkkd1" path="res://assets/icons/bread_loaf.png" id="6_72vhi"]
 [ext_resource type="Texture2D" uid="uid://cgs0vwnoajkk8" path="res://assets/icons/croissant.png" id="7_ednky"]
 [ext_resource type="PackedScene" uid="uid://5aio7bl5bvkw" path="res://time/RentCycle.tscn" id="9_frsyo"]
+[ext_resource type="Script" uid="uid://dnwf3ha7latv3" path="res://managers/day_night/lights.gd" id="10_2mcdl"]
+
+[sub_resource type="Gradient" id="Gradient_2mcdl"]
+colors = PackedColorArray(0, 0, 0, 1, 0.983947, 0.842489, 0, 0.721569)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cdyci"]
+gradient = SubResource("Gradient_2mcdl")
+fill_from = Vector2(0.495726, 0.974359)
+fill_to = Vector2(0.495726, 0)
 
 [node name="World" type="Node2D"]
 
@@ -131,6 +140,15 @@ offset_left = -91.0
 offset_top = -43.0
 offset_right = -18.0
 offset_bottom = -21.0
+
+[node name="Lights" type="Node2D" parent="."]
+script = ExtResource("10_2mcdl")
+metadata/_custom_type_script = "uid://dnwf3ha7latv3"
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights"]
+position = Vector2(577, 322)
+scale = Vector2(17.4063, 9.53125)
+texture = SubResource("GradientTexture2D_cdyci")
 
 [connection signal="pressed" from="CanvasLayer/Market/Exit" to="CanvasLayer/Market" method="_on_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/Orders/OrderTimer" to="CanvasLayer/Orders" method="_on_order_timer_timeout"]
