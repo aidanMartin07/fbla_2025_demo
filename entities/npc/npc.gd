@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	if velocity != Vector2.ZERO and state == States.WALKING:
 		sprite.play_movement_animation(velocity)
 	else:
-		sprite.play_idle_animation(idle_down)
+		sprite.play_idle_animation("down")
 	
 	
 	if state == States.WALKING:

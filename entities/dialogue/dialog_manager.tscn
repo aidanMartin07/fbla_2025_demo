@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://5q6wxp3e3rcg"]
+
+[ext_resource type="PackedScene" uid="uid://c1056dmdfq1f1" path="res://entities/dialogue/dialogue_box.tscn" id="1_3fjx5"]
+[ext_resource type="Script" uid="uid://c0tq4v3dkjld0" path="res://entities/dialogue/dialog_manager.gd" id="1_xnvk0"]
+
+[node name="DialogManager" type="Node2D"]
+script = ExtResource("1_xnvk0")
+
+[node name="DialogueBox" parent="." instance=ExtResource("1_3fjx5")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

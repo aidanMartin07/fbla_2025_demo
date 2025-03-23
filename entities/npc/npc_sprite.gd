@@ -14,7 +14,7 @@ var npc_name: String
 var direction: String
 
 func _ready() -> void:
-	npc_name = npc.skin_name
+	npc_name = npc.person_name
 
 func play_movement_animation(velocity: Vector2) -> void:
 	var dir = abs(velocity.y) > abs(velocity.x)
