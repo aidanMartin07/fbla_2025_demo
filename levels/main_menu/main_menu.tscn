@@ -62,6 +62,16 @@ theme = SubResource("Theme_xeosw")
 theme_override_font_sizes/font_size = 32
 text = "Tutorial!"
 
+[node name="Multiplayer" type="Button" parent="."]
+layout_mode = 2
+offset_left = 849.0
+offset_top = 564.0
+offset_right = 1128.0
+offset_bottom = 654.0
+theme = SubResource("Theme_xeosw")
+theme_override_font_sizes/font_size = 32
+text = "Tutorial!"
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 600.0
@@ -83,3 +93,4 @@ text = "[center]Perspicacious Bakery"
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="button_up" from="Quit" to="." method="_on_quit"]
 [connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Multiplayer" to="." method="_on_multiplayer_pressed"]

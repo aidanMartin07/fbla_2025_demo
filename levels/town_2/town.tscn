@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://cowcnoid4rhqa"]
+[gd_scene load_steps=17 format=4 uid="uid://cowcnoid4rhqa"]
 
 [ext_resource type="TileSet" uid="uid://djxjufpkto3n0" path="res://assets/tilesets/revamp/main_tileset.tres" id="1_kiyt8"]
+[ext_resource type="Script" uid="uid://7dblb80p5ts5" path="res://levels/town_2/SceneManager.gd" id="1_sjs6j"]
 [ext_resource type="PackedScene" uid="uid://1rhepn4vjimj" path="res://entities/player/player.tscn" id="2_3qb5k"]
 [ext_resource type="PackedScene" uid="uid://crkcx0a4glomm" path="res://entities/npc/npc.tscn" id="2_muf71"]
 [ext_resource type="Script" uid="uid://6x4sun5q8kj1" path="res://levels/town_2/transition_manager.gd" id="3_b54xe"]
@@ -41,6 +42,8 @@ size = Vector2(28, 29)
 size = Vector2(34.5, 27.5)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_sjs6j")
+PlayerScene = ExtResource("2_3qb5k")
 
 [node name="GroundTiles" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -274,6 +277,20 @@ shadow_enabled = true
 position = Vector2(-687, -63)
 energy = 0.1
 shadow_enabled = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://1rhepn4vjimj")
+spawn_path = NodePath("../Network")
+
+[node name="Network" type="Node" parent="."]
+
+[node name="SpawnLocations" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(885, 616)
+
+[node name="1" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(1412, -103)
 
 [connection signal="body_entered" from="ShopEntrance" to="TransitionManager" method="_on_shop_entrance_body_entered"]
 [connection signal="body_exited" from="ShopEntrance" to="TransitionManager" method="_on_shop_entrance_body_exited"]

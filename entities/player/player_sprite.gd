@@ -24,6 +24,11 @@ func _init() -> void:
 	
 
 func _ready() -> void:
+	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())
+	if GameManager.Players.size()!=0:
+		if $MultiplayerSynchronizer.get_multiplayer_authority() != multiplayer.get_unique_id():
+			$Camera2D.queue_free()
+		
 	coords.add_theme_color_override("font_color", "cyan") 
 	#PlayerManager.player_instance = self 
 	#position.x = PlayerManager.last_town_pos["x"]
@@ -33,32 +38,33 @@ func _process(delta: float) -> void:
 	coords.text = "X:" + str(global_position.x) + "\nY:" + str(global_position.y) +"\nFPS:" + str(Engine.get_frames_per_second())
 
 func _physics_process(delta: float) -> void:
-	
-	if(Input.is_action_just_pressed("tab")):
-		if(!inventory_open):
-			var add_inv = inventory.instantiate()
-			add_inv.player = self
-			canvas_layer.add_child(add_inv)
-			inventory_open = true
-		else:
-			emit_signal("close_inventory")
-			inventory_open = false
-	
+		if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id() || GameManager.Players.size()==0:
+		
+			if(Input.is_action_just_pressed("tab")):
+				if(!inventory_open):
+					var add_inv = inventory.instantiate()
+					add_inv.player = self
+					canvas_layer.add_child(add_inv)
+					inventory_open = true
+				else:
+					emit_signal("close_inventory")
+					inventory_open = false
+			
 
-	coords.text = "X:" + str(global_position.x) + "\nY:" + str(global_position.y) +"\nFPS:" + str(Engine.get_frames_per_second())
+			coords.text = "X:" + str(global_position.x) + "\nY:" + str(global_position.y) +"\nFPS:" + str(Engine.get_frames_per_second())
 
-	var direction := Input.get_vector("left", "right", "up", "down")
-	if direction and !talking:
-		dialogue_interact.target_position = velocity.normalized() * 45
-		velocity = direction.normalized() * SPEED * delta
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
-		velocity.y = move_toward(velocity.y, 0, SPEED * delta)
-	
-	if velocity != Vector2.ZERO:
-		animated_sprite_2d.play_movement_animation(velocity)
-	else:
-		animated_sprite_2d.play_idle_animation()
-	
-	
-	move_and_slide()
+			var direction := Input.get_vector("left", "right", "up", "down")
+			if direction and !talking:
+				dialogue_interact.target_position = velocity.normalized() * 45
+				velocity = direction.normalized() * SPEED * delta
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+				velocity.y = move_toward(velocity.y, 0, SPEED * delta)
+			
+			if velocity != Vector2.ZERO:
+				animated_sprite_2d.play_movement_animation(velocity)
+			else:
+				animated_sprite_2d.play_idle_animation()
+			
+			
+			move_and_slide()

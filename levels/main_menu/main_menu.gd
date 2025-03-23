@@ -35,3 +35,8 @@ func _on_quit() -> void:
 func _on_tutorial_pressed() -> void:
 	pass
 	#get_tree().change_scene_to_file("res://levels")
+
+
+func _on_multiplayer_pressed() -> void:
+	get_tree().change_scene_to_file("res://multiplayerScene.tscn")
+	pass # Replace with function body.

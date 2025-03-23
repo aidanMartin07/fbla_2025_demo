@@ -21,6 +21,7 @@ PlayerManager="*res://entities/player/player_manager.gd"
 TotalTime="*res://time/total_time.gd"
 DayNightManager="res://managers/day_night/day_night_manager.gd"
 DayNightCycle="*res://managers/day_night/day_night_cycle.tscn"
+GameManager="*res://GameManager.gd"
 
 [display]
 

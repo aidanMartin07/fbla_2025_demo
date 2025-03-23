@@ -11,8 +11,10 @@ var levels: Dictionary = {
 }
 
 func _ready() -> void:
-	player.position.x = PlayerManager.last_town_pos["x"]
-	player.position.y = PlayerManager.last_town_pos["y"]
+	if GameManager.Players.size()==0:
+		player.position.x = PlayerManager.last_town_pos["x"]
+		player.position.y = PlayerManager.last_town_pos["y"]
+		
 
 func load_transition_button(next_level: String):
 	var button = transition_node.instantiate()

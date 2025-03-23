@@ -63,38 +63,20 @@ position = Vector2(16, -248)
 [node name="Person2" parent="." instance=ExtResource("3_jhulr")]
 position = Vector2(250, 280)
 
-[node name="AnimatedSprite2D" parent="Person2/CharacterBody2D" index="0"]
-type = "2"
-
 [node name="Person3" parent="." instance=ExtResource("3_jhulr")]
 position = Vector2(-400, -400)
-
-[node name="AnimatedSprite2D" parent="Person3/CharacterBody2D" index="0"]
-type = "0"
 
 [node name="Person4" parent="." instance=ExtResource("3_jhulr")]
 position = Vector2(-600, 200)
 
-[node name="AnimatedSprite2D" parent="Person4/CharacterBody2D" index="0"]
-type = "2"
-
 [node name="Person5" parent="." instance=ExtResource("3_jhulr")]
 position = Vector2(200, -390)
-
-[node name="AnimatedSprite2D" parent="Person5/CharacterBody2D" index="0"]
-type = "0"
 
 [node name="Person6" parent="." instance=ExtResource("3_jhulr")]
 position = Vector2(0, -360)
 
-[node name="AnimatedSprite2D" parent="Person6/CharacterBody2D" index="0"]
-type = "0"
-
 [node name="Person7" parent="." instance=ExtResource("3_jhulr")]
 position = Vector2(-500, 280)
-
-[node name="AnimatedSprite2D" parent="Person7/CharacterBody2D" index="0"]
-type = "2"
 
 [node name="Person8" parent="." instance=ExtResource("3_jhulr")]
 position = Vector2(500, -250)
