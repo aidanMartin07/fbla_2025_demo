@@ -11,7 +11,7 @@ enum States {
 
 var state := States.IDLE
 
-@export var person_name: String
+@export var person_name: String = "bob"
 @export var stats: NPCStats
 
 var speed: float 

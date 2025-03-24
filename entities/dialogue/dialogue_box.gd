@@ -19,7 +19,6 @@ func show_dialog(speaker, text, options) -> void:
 		options.remove_child(option)
 
 func hide_dialog() -> void: 
-	text_panel.visible = false
 	PlayerManager.player_instance.talking = false
 
 

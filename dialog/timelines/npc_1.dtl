@@ -1,0 +1,12 @@
+npc_1: Welcome to my humble abode
+npc_1: Would you help me fix the park? All I need is $300.
+- Yes: Give $300
+	if PlayerManager.inventory["money"] > 300.0:
+		Thanks this will really help the community
+		[signal arg="charge_money"]
+	else:
+		Please come back when you have the money
+- No
+	Thats okay come back another time maybe
+[wait time="0.1"]
+[signal arg="stop_talking"]

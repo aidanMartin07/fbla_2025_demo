@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://cowcnoid4rhqa"]
+[gd_scene load_steps=18 format=4 uid="uid://cowcnoid4rhqa"]
 
 [ext_resource type="TileSet" uid="uid://djxjufpkto3n0" path="res://assets/tilesets/revamp/main_tileset.tres" id="1_kiyt8"]
 [ext_resource type="PackedScene" uid="uid://1rhepn4vjimj" path="res://entities/player/player.tscn" id="2_3qb5k"]
 [ext_resource type="PackedScene" uid="uid://crkcx0a4glomm" path="res://entities/npc/npc.tscn" id="2_muf71"]
+[ext_resource type="PackedScene" uid="uid://dixuj8cs4dp7e" path="res://entities/talking_npc/talking_npc.tscn" id="2_sjs6j"]
 [ext_resource type="Script" uid="uid://6x4sun5q8kj1" path="res://levels/town_2/transition_manager.gd" id="3_b54xe"]
 [ext_resource type="Script" uid="uid://b73o1ynqeboqq" path="res://entities/npc/npc_stats.gd" id="3_i4dma"]
 [ext_resource type="Script" uid="uid://dnwf3ha7latv3" path="res://managers/day_night/lights.gd" id="6_ihcsr"]
@@ -40,6 +41,9 @@ size = Vector2(28, 29)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt1t2"]
 size = Vector2(34.5, 27.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihcsr"]
+size = Vector2(30, 31)
+
 [node name="World" type="Node2D"]
 
 [node name="GroundTiles" type="Node2D" parent="."]
@@ -53,6 +57,12 @@ tile_set = ExtResource("1_kiyt8")
 [node name="YSortObject" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="TalkingNPC" parent="YSortObject" node_paths=PackedStringArray("player") instance=ExtResource("2_sjs6j")]
+position = Vector2(-216, -239)
+player = NodePath("../Player")
+skin_name = "top"
+timeline_name = "ice_cream"
+
 [node name="NPC" parent="YSortObject" instance=ExtResource("2_muf71")]
 position = Vector2(-32, -67)
 person_name = "alex"
@@ -60,7 +70,6 @@ stats = SubResource("Resource_mbd1i")
 
 [node name="NPC2" parent="YSortObject" instance=ExtResource("2_muf71")]
 position = Vector2(208, -213)
-person_name = "bob"
 stats = SubResource("Resource_i4dma")
 
 [node name="NPC3" parent="YSortObject" instance=ExtResource("2_muf71")]
@@ -131,6 +140,13 @@ position = Vector2(-782, 430)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GarageApartment"]
 position = Vector2(0.25, 0.75)
 shape = SubResource("RectangleShape2D_pt1t2")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="TallHouseEntrance" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TallHouseEntrance"]
+position = Vector2(-560, 1048.5)
+shape = SubResource("RectangleShape2D_ihcsr")
 debug_color = Color(1, 0.6, 0.701961, 0.419608)
 
 [node name="TransitionManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
@@ -283,5 +299,7 @@ shadow_enabled = true
 [connection signal="body_exited" from="SmallHouseEntrance" to="TransitionManager" method="_on_small_house_entrance_body_exited"]
 [connection signal="body_entered" from="GarageApartment" to="TransitionManager" method="_on_garage_apartment_body_entered"]
 [connection signal="body_exited" from="GarageApartment" to="TransitionManager" method="_on_garage_apartment_body_exited"]
+[connection signal="body_entered" from="TallHouseEntrance" to="TransitionManager" method="_on_tall_house_entrance_body_entered"]
+[connection signal="body_exited" from="TallHouseEntrance" to="TransitionManager" method="_on_tall_house_entrance_body_exited"]
 
 [editable path="YSortObject/Player"]

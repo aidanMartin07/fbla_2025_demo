@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=4 uid="uid://36cohp2iiowv"]
+
+[ext_resource type="TileSet" uid="uid://burjyyjscdpp5" path="res://assets/tilesets/revamp/indoor_tileset.tres" id="1_v51an"]
+[ext_resource type="PackedScene" uid="uid://dixuj8cs4dp7e" path="res://entities/talking_npc/talking_npc.tscn" id="2_u5xjj"]
+[ext_resource type="PackedScene" uid="uid://1rhepn4vjimj" path="res://entities/player/player.tscn" id="2_xfc4q"]
+[ext_resource type="Script" uid="uid://bvlslvs45ymk" path="res://levels/tall_house/transition_manager.gd" id="3_oe10r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfc4q"]
+size = Vector2(61, 29)
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+
+[node name="GroundTiles" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Ground" type="TileMapLayer" parent="GroundTiles"]
+z_index = -3
+tile_map_data = PackedByteArray("AAD7//v/AAALAAkAAAD7//z/AAALAAoAAAD7//3/AAANAAkAAAD7//7/AAANAAkAAAD7////AAALAAoAAAD7/wAAAAAMAAoAAAD7/wEAAAALAAoAAAD7/wIAAAAMAAoAAAD7/wMAAAAMAAoAAAD7/wQAAAANAAoAAAD7/wUAAAAMAAkAAAD8//v/AAALAAkAAAD8//z/AAALAAoAAAD8//3/AAALAAkAAAD8//7/AAAMAAoAAAD8////AAANAAkAAAD8/wAAAAALAAoAAAD8/wEAAAALAAkAAAD8/wIAAAAMAAkAAAD8/wMAAAANAAoAAAD8/wQAAAAMAAoAAAD8/wUAAAALAAkAAAD9//v/AAANAAoAAAD9//z/AAANAAoAAAD9//3/AAANAAkAAAD9//7/AAANAAoAAAD9////AAALAAkAAAD9/wAAAAANAAoAAAD9/wEAAAAMAAkAAAD9/wIAAAAMAAkAAAD9/wMAAAANAAkAAAD9/wQAAAANAAkAAAD9/wUAAAAMAAoAAAD+//v/AAALAAoAAAD+//z/AAAMAAkAAAD+//3/AAALAAoAAAD+//7/AAANAAkAAAD+////AAANAAkAAAD+/wAAAAALAAoAAAD+/wEAAAAMAAkAAAD+/wIAAAALAAkAAAD+/wMAAAAMAAkAAAD+/wQAAAAMAAkAAAD+/wUAAAAMAAoAAAD///v/AAALAAoAAAD///z/AAALAAkAAAD///3/AAANAAoAAAD///7/AAAMAAoAAAD/////AAAMAAoAAAD//wAAAAANAAoAAAD//wEAAAANAAkAAAD//wIAAAAMAAoAAAD//wMAAAAMAAkAAAD//wQAAAAMAAoAAAD//wUAAAAMAAoAAAAAAPv/AAAMAAoAAAAAAPz/AAAMAAkAAAAAAP3/AAAMAAkAAAAAAP7/AAALAAoAAAAAAP//AAALAAkAAAAAAAAAAAAMAAkAAAAAAAEAAAANAAkAAAAAAAIAAAANAAkAAAAAAAMAAAANAAkAAAAAAAQAAAANAAkAAAAAAAUAAAALAAoAAAABAPv/AAAMAAoAAAABAPz/AAANAAoAAAABAP3/AAALAAkAAAABAP7/AAAMAAkAAAABAP//AAAMAAoAAAABAAAAAAANAAoAAAABAAEAAAANAAkAAAABAAIAAAALAAkAAAABAAMAAAANAAkAAAABAAQAAAAMAAoAAAABAAUAAAANAAkAAAACAPv/AAANAAkAAAACAPz/AAAMAAkAAAACAP3/AAANAAoAAAACAP7/AAANAAkAAAACAP//AAANAAkAAAACAAAAAAANAAkAAAACAAEAAAAMAAoAAAACAAIAAAALAAoAAAACAAMAAAAMAAkAAAACAAQAAAANAAkAAAACAAUAAAAMAAoAAAADAPv/AAAMAAkAAAADAPz/AAALAAkAAAADAP3/AAALAAoAAAADAP7/AAANAAoAAAADAP//AAALAAoAAAADAAAAAAAMAAkAAAADAAEAAAAMAAoAAAADAAIAAAALAAkAAAADAAMAAAAMAAkAAAADAAQAAAAMAAoAAAADAAUAAAALAAkAAAD9/wYAAAANAAoAAAD+/wYAAAAMAAoAAAA=")
+tile_set = ExtResource("1_v51an")
+
+[node name="ColorRect" type="ColorRect" parent="GroundTiles"]
+z_index = -4
+offset_left = -1437.0
+offset_top = -1039.0
+offset_right = 3049.0
+offset_bottom = 1583.0
+color = Color(0, 0, 0, 1)
+
+[node name="YSortObject" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TalkingNPC" parent="YSortObject" node_paths=PackedStringArray("player") instance=ExtResource("2_u5xjj")]
+position = Vector2(-73, -98)
+player = NodePath("../Player")
+skin_name = "bob"
+timeline_name = "npc_2"
+
+[node name="Player" parent="YSortObject" instance=ExtResource("2_xfc4q")]
+position = Vector2(-64, 192)
+
+[node name="GroundProps" type="TileMapLayer" parent="YSortObject"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD9/wYAAAALABIAAAD+/wYAAAALABIAAAD9//v/AAAPAA8AAAD///v/AAAcABAAAAD7//v/AAAPAA8AAAD9//7/AAAJABIAAAD+//7/AAALABIAAAD///7/AAAKABIAAAD/////AAAKABMAAAD9////AAAJABMAAAD+////AAALABMAAAABAP3/AAAJABAAAAACAP3/AAAKABAAAAADAP3/AAAMABAAAAABAP7/AAAaABQAAAADAP7/AAAaABQAAAA=")
+tile_set = ExtResource("1_v51an")
+
+[node name="Walls" type="TileMapLayer" parent="YSortObject"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD7//r/AAAMAAMAAAD8//r/AAANAAMAAAD9//r/AAAMAAMAAAD+//r/AAANAAMAAAD///r/AAAMAAMAAAAAAPr/AAANAAMAAAABAPr/AAAMAAMAAAACAPr/AAAMAAMAAAADAPr/AAANAAMAAAD7//n/AAAMAAcAAAD8//n/AAANAAcAAAD9//n/AAAMAAcAAAD+//n/AAANAAcAAAD///n/AAAMAAcAAAAAAPn/AAANAAcAAAABAPn/AAAMAAcAAAACAPn/AAAMAAcAAAADAPn/AAANAAcAAAD7//f/AAAMAAEAAAD7//j/AAAMAAIAAAD8//f/AAANAAEAAAD8//j/AAANAAIAAAD9//f/AAAMAAEAAAD9//j/AAAMAAIAAAD+//f/AAANAAEAAAD+//j/AAANAAIAAAD///f/AAAMAAEAAAD///j/AAAMAAIAAAAAAPf/AAANAAEAAAAAAPj/AAANAAIAAAABAPf/AAAMAAEAAAABAPj/AAAMAAIAAAACAPf/AAAMAAEAAAACAPj/AAAMAAIAAAADAPf/AAANAAEAAAADAPj/AAANAAIAAAD6//f/AAALAAEAAAAEAPf/AAAOAAEAAAD6//j/AAAKAAMAAAD6//n/AAAKAAMAAAD6//r/AAAKAAMAAAD6//v/AAAKAAMAAAD6//z/AAAKAAMAAAD6//3/AAAKAAMAAAD6//7/AAAKAAMAAAD6////AAAKAAMAAAD6/wAAAAAKAAMAAAD6/wEAAAAKAAMAAAD6/wIAAAAKAAMAAAD6/wMAAAAKAAMAAAD6/wQAAAAKAAMAAAD6/wUAAAAKAAMAAAD6/wYAAAAKAAUAAAD8/wYAAAALAAUAAAD7/wYAAAAMAAYAAAD8/wcAAAALAAYAAAD9/wcAAAAMAAYAAAD+/wcAAAANAAYAAAD//wcAAAAOAAYAAAD//wYAAAAOAAUAAAAAAAYAAAANAAYAAAABAAYAAAANAAYAAAACAAYAAAANAAYAAAADAAYAAAANAAYAAAAEAAUAAAAPAAQAAAAEAAYAAAAPAAUAAAAEAAQAAAAPAAQAAAAEAAMAAAAPAAQAAAAEAAIAAAAPAAQAAAAEAAEAAAAPAAQAAAAEAAAAAAAPAAQAAAAEAP//AAAPAAQAAAAEAP7/AAAPAAQAAAAEAP3/AAAPAAQAAAAEAPz/AAAPAAQAAAAEAPv/AAAPAAQAAAAEAPr/AAAPAAQAAAAEAPn/AAAPAAQAAAAEAPj/AAAPAAQAAAA=")
+tile_set = ExtResource("1_v51an")
+
+[node name="WallProps" type="TileMapLayer" parent="YSortObject"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAACAPn/AAAYAA8AAAA=")
+tile_set = ExtResource("1_v51an")
+
+[node name="TownEntrance" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TownEntrance"]
+position = Vector2(-64.5, 207.5)
+shape = SubResource("RectangleShape2D_xfc4q")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="TransitionManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_oe10r")
+player = NodePath("../YSortObject/Player")
+level_scenes = Array[String](["res://levels/town_2/town.tscn"])
+
+[connection signal="body_entered" from="TownEntrance" to="TransitionManager" method="_on_town_entrance_body_entered"]
+[connection signal="body_exited" from="TownEntrance" to="TransitionManager" method="_on_town_entrance_body_exited"]

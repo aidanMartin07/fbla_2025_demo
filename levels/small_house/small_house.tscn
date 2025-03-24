@@ -1,16 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://du8n1r2fu7hn6"]
+[gd_scene load_steps=9 format=4 uid="uid://du8n1r2fu7hn6"]
 
 [ext_resource type="TileSet" uid="uid://burjyyjscdpp5" path="res://assets/tilesets/revamp/indoor_tileset.tres" id="1_je6u5"]
 [ext_resource type="PackedScene" uid="uid://1rhepn4vjimj" path="res://entities/player/player.tscn" id="2_8xud0"]
-[ext_resource type="Script" uid="uid://jgh4bri2t0" path="res://entities/dialogue/dialogues/dialog.gd" id="3_2bt58"]
 [ext_resource type="Script" uid="uid://cg2clhw6e6efy" path="res://levels/small_house/transition_manager.gd" id="3_3yd16"]
 [ext_resource type="PackedScene" uid="uid://dixuj8cs4dp7e" path="res://entities/talking_npc/talking_npc.tscn" id="3_k4dr5"]
 [ext_resource type="Script" uid="uid://dnwf3ha7latv3" path="res://managers/day_night/lights.gd" id="4_r6cfi"]
-
-[sub_resource type="Resource" id="Resource_yg2ux"]
-script = ExtResource("3_2bt58")
-dialogs = {}
-metadata/_custom_type_script = "uid://jgh4bri2t0"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yd16"]
 size = Vector2(93, 30)
@@ -49,10 +43,6 @@ y_sort_enabled = true
 [node name="TalkingNPC" parent="YSortObject" node_paths=PackedStringArray("player") instance=ExtResource("3_k4dr5")]
 y_sort_enabled = true
 player = NodePath("../Player")
-skin_name = "alex"
-npc_id = "npc_1"
-person_name = "gronathan"
-dialog_resource = SubResource("Resource_yg2ux")
 
 [node name="Player" parent="YSortObject" instance=ExtResource("2_8xud0")]
 position = Vector2(-81, 183)
