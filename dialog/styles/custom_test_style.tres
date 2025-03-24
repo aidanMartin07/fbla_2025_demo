@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=4 format=3 uid="uid://ceun0mxp0n515"]
+
+[ext_resource type="Script" uid="uid://du10n5hg3k35k" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_hbobh"]
+[ext_resource type="Script" uid="uid://cwi5rnv0eu3hn" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_f6fv5"]
+
+[sub_resource type="Resource" id="Resource_itlys"]
+script = ExtResource("1_hbobh")
+overrides = {
+"global_bg_color": "Color(0.411765, 0.223529, 0.156863, 0.917647)"
+}
+
+[resource]
+script = ExtResource("2_f6fv5")
+name = "custom_test_style"
+layer_list = Array[String]([])
+layer_info = {
+"": SubResource("Resource_itlys")
+}
+base_overrides = {}
+layers = Array[ExtResource("1_hbobh")]([])
+metadata/_latest_layer = ""

@@ -7,7 +7,8 @@ var levels: Dictionary = {
 	"market": "res://levels/market/market.tscn",
 	"shop": "res://levels/shop/shop.tscn",
 	"small_house": "res://levels/small_house/small_house.tscn",
-	"garage_apartment": "res://levels/garage_apartment/lobby.tscn"
+	"garage_apartment": "res://levels/garage_apartment/lobby.tscn",
+	"tall_house": "res://levels/tall_house/tall_house.tscn"
 }
 
 func _ready() -> void:
@@ -59,4 +60,14 @@ func _on_garage_apartment_body_entered(body: Node2D) -> void:
 
 
 func _on_garage_apartment_body_exited(body: Node2D) -> void:
+	unload_transition_button()
+
+
+func _on_tall_house_entrance_body_entered(body: Node2D) -> void:
+	PlayerManager.last_town_pos["x"] = player.position.x
+	PlayerManager.last_town_pos["y"] = player.position.y
+	load_transition_button(levels["tall_house"])
+
+
+func _on_tall_house_entrance_body_exited(body: Node2D) -> void:
 	unload_transition_button()

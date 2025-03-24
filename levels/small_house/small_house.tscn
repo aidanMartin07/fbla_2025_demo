@@ -43,9 +43,6 @@ y_sort_enabled = true
 [node name="TalkingNPC" parent="YSortObject" node_paths=PackedStringArray("player") instance=ExtResource("3_k4dr5")]
 y_sort_enabled = true
 player = NodePath("../Player")
-skin_name = "alex"
-npc_id = "npc_1"
-person_name = "gronathan"
 
 [node name="Player" parent="YSortObject" instance=ExtResource("2_8xud0")]
 position = Vector2(-81, 183)

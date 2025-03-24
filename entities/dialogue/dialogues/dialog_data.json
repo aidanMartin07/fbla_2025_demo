@@ -1,16 +1,122 @@
 {
 	"npc_1": {
-		"tree": [
+		"trees": [
 			{
 				"branch_id": "npc_1_1",
-				"dialogs": []
+				"dialogs": [
+					{
+						"state": "start",
+						"text": "Starting text for npc_1",
+						"options": {
+							"Continue": "in_progress",
+							"Ask For Job": "give_quests",
+							"Leave": "exit",
+						}
+					},
+					{
+						"state": "in_progress",
+						"text": "Continuing text",
+						"options": {
+							"Go Back": "start",
+							"Ask For Job": "give_quests",
+							"Leave": "exit",
+						}
+					},
+					{
+						"state": "give_quests",
+						"text": "Give me item",
+						"options": {
+							"Continue": "in_progress",
+							"Leave": "exit",
+						}
+					},
+					{
+						"state": "end",
+						"text": "Bye",
+						"options": {}
+					},
+					{
+						"state": "exit",
+						"text": "Exit Message ",
+						"options": {}
+					},
+					
+				]
 			},
-		],
+			{
+				"branch_id": "npc_1_2",
+				"dialogs": [
+					{
+						"state": "start",
+						"text": "Starting branch deviation text npc_1_2",
+						"options": {
+							"Continue": "in_progress",
+							"Get More Quest": "give_quests",
+							"Say Goodbye": "exit"
+						}
+					},
+					{
+						"state": "in_progress",
+						"text": "Continuing the text once more",
+						"options": {
+							"Leave": "end",
+							"Go Back": "start"
+						}
+					},
+					{
+						"state": "give_quests",
+						"text": "give me one million beer please",
+						"options": {
+							"Leave": "exit",
+							"Go Back": "start"
+						}
+					},
+					{
+						"state": "end",
+						"text": "Goodbye",
+						"options": {}
+					},
+					{
+						"state": "exit",
+						"text": "Come Back Later",
+						"options": {}
+					},
+				]
+			},
+			{
+				"branch_id": "npc_1_default",
+				"dialogs0": [
+					{
+						"state": "start",
+						"text": "Default npc_1 text",
+						"options": {
+							"Get Quest": "give_quests",
+							"Leave": "exit"
+						},
+					},
+					{
+						"state": "give_quests",
+						"text": "Here is a quest I made",
+						"options": {
+							"Go Back": "start"
+						}
+					}
+				]
+			}
+		]
 	},
 	"npc_2": {
-		"tree": [
+		"trees": [
 			{
 				"branch_id": "npc_2_1",
+				"dialogs": []
+			},
+			{
+				"branch_id": "npc_2_2",
+				"dialogs": []
+			},
+			{
+				"branch_id": "npc_2_default",
 				"dialogs": []
 			},
 		],

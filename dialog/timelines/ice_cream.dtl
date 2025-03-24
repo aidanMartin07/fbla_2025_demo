@@ -1,0 +1,4 @@
+ice_cream_man: I run this here fine establishment 
+ice_cream_man: I sell all sorts of sweet treats but my specialty is ice cream of course
+[wait time="0.1"]
+[signal arg="stop_talking"]

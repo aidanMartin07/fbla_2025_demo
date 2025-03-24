@@ -10,32 +10,37 @@ var inventory: Dictionary = {
 	"milk": 0
 }
 
-var upgrades: Dictionary = {
+var upgrades: Dictionary[String, int] = {
 	"coffee": 1,
 	"iced_coffee": 1,
 	"bread_roll": 1,
 	"croissant": 1
 }
 
-var completed_crafts: Dictionary = {
+var completed_crafts: Dictionary[String, int] = {
 	"coffee": 0,
 	"bread_roll": 0,
 	"croissant": 0,
 	"iced_coffee": 0,
 }
 
-var market_prices: Dictionary = {
+var market_prices: Dictionary[String, int] = {
 	"coffee": 20,
 	"bread_roll": 22,
 	"croissant": 22,
 	"iced_coffee": 34
 }
 
-var upgrade_level: Dictionary = {
+var upgrade_level: Dictionary[String, int] = {
 	"coffee": 1,
 	"bread_roll": 1,
 	"croissant": 1,
 	"iced_coffee": 1
+}
+
+var quest_lines: Dictionary[String, int] = {
+	"npc_1": 0,
+	"npc_2": 0,
 }
 
 var pause_menu = preload("res://levels/pause_menu/pause_menu.tscn")
@@ -62,8 +67,13 @@ var player_instance = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	Dialogic.signal_event.connect(dialogic_signal)
 
+func dialogic_signal(arg: String):
+	if arg == "charge_money":
+		inventory["money"] -= 300
+	if arg == "stop_talking":
+		player_instance.talking = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

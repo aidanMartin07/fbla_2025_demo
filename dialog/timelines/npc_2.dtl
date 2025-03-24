@@ -1,0 +1,7 @@
+Aren't you the guy who runs that new bakery
+I hear the local Ice Cream store is tough competition
+How'd you like to help me run them out of town
+- Sure thing
+- No thanks
+[wait time="0.1"]
+[signal arg="stop_talking"]
