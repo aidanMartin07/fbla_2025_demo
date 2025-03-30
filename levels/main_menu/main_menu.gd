@@ -33,5 +33,5 @@ func _on_quit() -> void:
 
 
 func _on_tutorial_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file("res://ui/tutorial.tscn")
 	#get_tree().change_scene_to_file("res://levels")

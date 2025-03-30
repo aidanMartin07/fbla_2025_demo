@@ -61,12 +61,13 @@ theme = ExtResource("3_b8pin")
 
 [node name="HeaderTitle" type="Label" parent="CanvasLayer/ShopContainer"]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 56.0
-offset_right = 817.0
-offset_bottom = 72.0
+offset_left = 128.0
+offset_top = 48.0
+offset_right = 1024.0
+offset_bottom = 88.0
 text = "Shop"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Exit" type="Button" parent="CanvasLayer/ShopContainer"]
 layout_mode = 0
@@ -76,6 +77,15 @@ offset_right = 96.0
 offset_bottom = 56.0
 theme = ExtResource("3_b8pin")
 text = "Exit"
+
+[node name="Inventory" type="Button" parent="CanvasLayer/ShopContainer"]
+layout_mode = 0
+offset_left = 1048.0
+offset_top = 16.0
+offset_right = 1136.0
+offset_bottom = 56.0
+theme = ExtResource("3_b8pin")
+text = "Inventory"
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/ShopContainer"]
 layout_mode = 0
@@ -299,11 +309,12 @@ script = ExtResource("14_tcvwx")
 metadata/_custom_type_script = "uid://dnwf3ha7latv3"
 
 [node name="PointLight2D" type="PointLight2D" parent="Lights"]
-position = Vector2(576, 336)
-scale = Vector2(18, 11.5)
+position = Vector2(576, 416)
+scale = Vector2(18, 14)
 texture = SubResource("GradientTexture2D_tcvwx")
 
 [connection signal="pressed" from="CanvasLayer/ShopContainer/Exit" to="CanvasLayer/ShopContainer" method="_on_exit_pressed"]
+[connection signal="button_up" from="CanvasLayer/ShopContainer/Inventory" to="CanvasLayer/ShopContainer" method="_on_inventory_button_up"]
 [connection signal="button_up" from="CanvasLayer/ShopContainer/GridContainer/CoffeePurchase" to="CanvasLayer/ShopContainer" method="_on_coffee_purchase_button_up"]
 [connection signal="button_up" from="CanvasLayer/ShopContainer/GridContainer/FlourPurchase" to="CanvasLayer/ShopContainer" method="_on_flour_purchase_button_up"]
 [connection signal="button_up" from="CanvasLayer/ShopContainer/GridContainer/Milk Purchase" to="CanvasLayer/ShopContainer" method="_on_milk_purchase_button_up"]

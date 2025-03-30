@@ -43,6 +43,7 @@ func add_upgrade_to_inv(upgrade:String):
 		PlayerManager.upgrade_level[upgrade] += 1
 
 
+
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://levels/town_2/town.tscn")
 
@@ -76,3 +77,7 @@ func _on_bread_roll_upgrade_button_up() -> void:
 
 func _on_croissant_upgrade_button_up() -> void:
 	add_upgrade_to_inv("croissant")
+
+
+func _on_inventory_button_up() -> void:
+	PlayerManager.toggle_inventory()

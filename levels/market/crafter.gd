@@ -19,7 +19,7 @@ class_name Crafter
 @onready var line_edit: LineEdit = $Panel/LineEdit
 
 var crafting: bool = false
-
+const INVENTORY = preload("res://entities/player/inventory.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

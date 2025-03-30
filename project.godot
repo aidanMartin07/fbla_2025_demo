@@ -26,12 +26,14 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"construction_worker": "res://dialog/characters/construction_worker.dch",
 "ice_cream_man": "res://dialog/characters/ice_cream_man.dch",
 "npc_1": "res://dialog/characters/npc_1.dch",
 "test_character": "res://dialog/characters/test_character.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"construction": "res://dialog/timelines/construction.dtl",
 "ice_cream": "res://dialog/timelines/ice_cream.dtl",
 "npc_1": "res://dialog/timelines/npc_1.dtl",
 "npc_2": "res://dialog/timelines/npc_2.dtl",
@@ -80,6 +82,8 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 Player=""
 TalkingNPC=""
+Chemicals=""
+Trash=""
 
 [gui]
 

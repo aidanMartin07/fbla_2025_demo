@@ -45,19 +45,29 @@ text = "Start!"
 [node name="Quit" type="Button" parent="."]
 layout_mode = 2
 offset_left = 845.0
-offset_top = 290.0
+offset_top = 497.0
 offset_right = 1124.0
-offset_bottom = 380.0
+offset_bottom = 587.0
 theme = SubResource("Theme_xeosw")
 theme_override_font_sizes/font_size = 32
 text = "Quit!"
 
+[node name="Multiplayer" type="Button" parent="."]
+layout_mode = 2
+offset_left = 845.0
+offset_top = 390.0
+offset_right = 1124.0
+offset_bottom = 480.0
+theme = SubResource("Theme_xeosw")
+theme_override_font_sizes/font_size = 32
+text = "Multiplayer!"
+
 [node name="Tutorial" type="Button" parent="."]
 layout_mode = 2
 offset_left = 845.0
-offset_top = 388.0
+offset_top = 290.0
 offset_right = 1124.0
-offset_bottom = 478.0
+offset_bottom = 380.0
 theme = SubResource("Theme_xeosw")
 theme_override_font_sizes/font_size = 32
 text = "Tutorial!"

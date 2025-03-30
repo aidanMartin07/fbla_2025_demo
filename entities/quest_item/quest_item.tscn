@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4thdm0368lm0"]
+
+[ext_resource type="Texture2D" uid="uid://c24ipa6wqsvmt" path="res://assets/icons/chemicals.png" id="1_j147v"]
+[ext_resource type="Script" uid="uid://de6plrx5aj2re" path="res://entities/quest_item/chemicals.gd" id="1_stgec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stgec"]
+size = Vector2(72, 79)
+
+[sub_resource type="Animation" id="Animation_xrhws"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_stgec"]
+resource_name = "fade"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xrhws"]
+_data = {
+&"RESET": SubResource("Animation_xrhws"),
+&"fade": SubResource("Animation_stgec")
+}
+
+[node name="Chemicals" type="Node2D" groups=["Chemicals"]]
+script = ExtResource("1_stgec")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, -16)
+texture = ExtResource("1_j147v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-22, -12)
+texture = ExtResource("1_j147v")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture = ExtResource("1_j147v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Chemicals"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3, -7.5)
+shape = SubResource("RectangleShape2D_stgec")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xrhws")
+}

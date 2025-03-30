@@ -1,0 +1,10 @@
+if PlayerManager.quest_lines["npc_1"] == 1:
+	construction_worker: Could you help me pick up trash around the park
+elif PlayerManager.quest_lines["npc_1"] == 2:
+	construction_worker: Thanks for helping out
+	construction_worker: I'll be sure to tell the town of your good deeds
+	[signal arg="park_restored"]
+else:
+	construction_worker: Oh boy I sure do love constructing on my construction job
+[wait time="0.1"]
+[signal arg="stop_talking"]

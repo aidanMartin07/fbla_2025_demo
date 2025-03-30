@@ -7,3 +7,7 @@ func _physics_process(delta: float) -> void:
 			var npc = get_collider()
 			npc.start_dialog()
 			get_parent().talking = !get_parent().talking
+	if is_colliding() and (get_collider().is_in_group("Chemicals") or get_collider().is_in_group("Trash")):
+		if (Input.is_action_just_pressed("interact")):
+			var obj = get_collider()
+			obj.get_parent().interact()

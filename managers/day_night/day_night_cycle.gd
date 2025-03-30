@@ -4,7 +4,7 @@ var active: bool = false
 
 var timestamps: Dictionary = {
 	"sunrise": 179, #179
-	"sunset": 5, #79
+	"sunset": 79, #79
 }
 
 var real_time: int

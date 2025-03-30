@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgj0eqk3yb07y"]
+[gd_scene load_steps=5 format=3 uid="uid://dxgah24kiydgk"]
 
-[ext_resource type="Script" uid="uid://ciunfe8nim421" path="res://ui/tutorialscript.gd" id="1_bwtbu"]
-[ext_resource type="Texture2D" uid="uid://c0u2h0cemjweh" path="res://ui/FBLA Regionals 2025.png" id="2_h3p6s"]
+[ext_resource type="Script" path="res://ui/tutorialscript.gd" id="1_bwtbu"]
+[ext_resource type="Texture2D" uid="uid://5720imxiia33" path="res://assets/market_image.png" id="2_wct7o"]
+[ext_resource type="Texture2D" uid="uid://b31r7a5fklq0y" path="res://assets/shop_image.png" id="3_11rxk"]
+[ext_resource type="Texture2D" uid="uid://g22gr4cjnot7" path="res://assets/npc_image.png" id="4_iambg"]
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -18,18 +20,210 @@ offset_right = 1163.0
 offset_bottom = 659.0
 color = Color(0.160784, 0.156863, 0.203922, 1)
 
-[node name="FblaRegionals2025" type="Sprite2D" parent="."]
-position = Vector2(585, 323)
-scale = Vector2(1.23519, 1.23519)
-texture = ExtResource("2_h3p6s")
-
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 787.0
-offset_top = 511.0
-offset_right = 1007.0
-offset_bottom = 591.0
+offset_left = 896.0
+offset_top = 480.0
+offset_right = 1116.0
+offset_bottom = 560.0
 theme_override_font_sizes/font_size = 32
 text = "Continue!"
+
+[node name="ControlHeaderPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 168.0
+offset_bottom = 96.0
+
+[node name="ControlsLable" type="RichTextLabel" parent="ControlHeaderPanel"]
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 48.0
+bbcode_enabled = true
+text = "Controls"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 112.0
+offset_right = 200.0
+offset_bottom = 320.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 208.0
+bbcode_enabled = true
+text = "Up: [W]
+
+Down:[S]
+
+Left: [A]
+
+Right: [D]
+
+Interact: [E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarketHeader" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 56.0
+offset_right = 536.0
+offset_bottom = 96.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarketHeader"]
+layout_mode = 0
+offset_right = 152.0
+offset_bottom = 40.0
+text = "Market"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarketPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 112.0
+offset_right = 664.0
+offset_bottom = 320.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MarketPanel"]
+position = Vector2(297.33, 101.527)
+scale = Vector2(0.206559, 0.206559)
+texture = ExtResource("2_wct7o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarketPanel"]
+layout_mode = 0
+offset_right = 199.0
+offset_bottom = 208.0
+text = "Run a bakery and try to maximize profits 
+
+Pay rent everyday 
+
+Go bankrupt and lose"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopHeader" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 56.0
+offset_right = 984.0
+offset_bottom = 96.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ShopHeader"]
+layout_mode = 0
+offset_right = 152.0
+offset_bottom = 40.0
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 112.0
+offset_right = 1112.0
+offset_bottom = 320.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ShopPanel"]
+position = Vector2(296, 104)
+scale = Vector2(0.190179, 0.190179)
+texture = ExtResource("3_11rxk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ShopPanel"]
+layout_mode = 0
+offset_right = 195.0
+offset_bottom = 208.0
+text = "Go to the shop to purchase ingredients
+
+Manage inventory according to customer demand"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NPCHeader" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 368.0
+offset_right = 400.0
+offset_bottom = 416.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NPCHeader"]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 48.0
+text = "NPC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NPCs" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 432.0
+offset_right = 576.0
+offset_bottom = 632.0
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs"]
+position = Vector2(368, 104)
+scale = Vector2(0.17936, 0.17936)
+texture = ExtResource("4_iambg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NPCs"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 280.0
+offset_bottom = 200.0
+text = "Talk to NPCs around town
+
+Learn about the town's community
+
+Get quests from NPCs
+
+Build a name for yourself in the community"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinLoseHeader" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 368.0
+offset_right = 816.0
+offset_bottom = 416.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WinLoseHeader"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 48.0
+text = "Win & Lose"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinLose" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 432.0
+offset_right = 848.0
+offset_bottom = 632.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WinLose"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 184.0
+offset_bottom = 200.0
+bbcode_enabled = true
+text = "[b]Lose
+
+Go bankrupt and lose
+
+Win
+
+Make $10,000 and win"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="Button" to="." method="_leave_tutorial"]

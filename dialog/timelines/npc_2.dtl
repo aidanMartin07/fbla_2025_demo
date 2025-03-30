@@ -1,7 +1,15 @@
-Aren't you the guy who runs that new bakery
-I hear the local Ice Cream store is tough competition
-How'd you like to help me run them out of town
-- Sure thing
-- No thanks
+if PlayerManager.quest_lines["npc_2"] == 0:
+	Aren't you the guy who runs that new bakery
+	I hear the local Ice Cream store is tough competition
+	How'd you like to help me run them out of town
+	- Sure thing
+		Look around town and find me some chemicals maybe we can get them a health violation
+		[signal arg="start_chemicals"]
+	- No thanks
+		Think about it and come back to me
+elif PlayerManager.chemicals == true:
+	This should do the trick
+	Next time the health inspector comes they'll be closed down for good
+	[signal arg="remove_chemicals"]
 [wait time="0.1"]
 [signal arg="stop_talking"]

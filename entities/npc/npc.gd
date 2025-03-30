@@ -31,7 +31,7 @@ func _ready() -> void:
 	spawn_nodes = stats.spawn_nodes
 	bakery = stats.bakery
 	state = States.WALKING
-	nav_agent.target_position = bakery
+	pick_new_location()
 
 func _physics_process(delta: float) -> void:
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
@@ -49,10 +49,11 @@ func _physics_process(delta: float) -> void:
 func make_new_path() -> void:
 	state = States.WALKING
 	var chance = randi_range(0,1)
-	if(chance == 0):
-		make_new_door_path()
-	else:
-		make_new_idle_path()
+	pick_new_location()
+
+func make_new_bakery_path() -> void:
+	nav_agent.target_position = bakery
+	walking_to_idle = false
 
 func make_new_door_path() -> void:
 	nav_agent.target_position = position_nodes.pick_random()
@@ -74,6 +75,15 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 		$SpawnTimer.start(randf_range(2.5,5.5))
 		state = States.DESPAWNED
 
+func pick_new_location() -> void:
+	var chance = randi_range(0,100)
+	if chance > 10:
+		if chance > 30 + PlayerManager.order_chance_increase + PlayerManager.reputation:
+			make_new_door_path()
+		else:
+			make_new_bakery_path()
+	else:
+		make_new_idle_path()
 
 func _on_idle_timer_timeout() -> void:
 	var idle_chance = randi_range(0,1)

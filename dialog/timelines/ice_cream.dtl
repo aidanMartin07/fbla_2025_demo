@@ -1,4 +1,10 @@
-ice_cream_man: I run this here fine establishment 
-ice_cream_man: I sell all sorts of sweet treats but my specialty is ice cream of course
+if PlayerManager.quest_lines["npc_2"] == 2.0:
+	ice_cream_man: The health inspector is shutting me down
+	ice_cream_man: It's a shame I thought everything was up to code
+	ice_cream_man: I guess my quaint little ice cream shop was never meant to be
+else:
+	ice_cream_man: I run this here fine establishment
+	ice_cream_man: I sell all sorts of sweet treats but my specialty is ice cream of course
+	ice_cream_man: This ice cream shop is my life's work
 [wait time="0.1"]
 [signal arg="stop_talking"]

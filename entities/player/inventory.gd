@@ -1,6 +1,6 @@
 extends Control
 
-@export var player: CharacterBody2D
+@export var player: Node
 
 @onready var money: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid/Money
 @onready var coffee_grounds: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid/CoffeeGrounds
@@ -12,6 +12,7 @@ extends Control
 @onready var iced_coffee: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid2/IcedCoffee
 @onready var bread_roll: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid2/BreadRoll
 @onready var croissant: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid2/Croissant
+@onready var rep: Label = $Panel/NumberMargins/HBoxContainer2/IngredientsGrid2/Rep
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 	iced_coffee.text = "Iced Coffee : " + str(PlayerManager.completed_crafts["iced_coffee"])
 	bread_roll.text = "Bread : " + str(PlayerManager.completed_crafts["bread_roll"])
 	croissant.text = "Croissants : " + str(PlayerManager.completed_crafts["croissant"])
-
+	rep.text = "Rep: " + str(PlayerManager.reputation)
 func close() -> void:
 	#plays the open animation backwards and removes node from tree after finished
 	$Panel/AnimationPlayer.play_backwards("open")

@@ -1,12 +1,16 @@
-npc_1: Welcome to my humble abode
-npc_1: Would you help me fix the park? All I need is $300.
-- Yes: Give $300
-	if PlayerManager.inventory["money"] > 300.0:
-		Thanks this will really help the community
-		[signal arg="charge_money"]
-	else:
-		Please come back when you have the money
-- No
-	Thats okay come back another time maybe
+if PlayerManager.quest_lines["npc_1"] == 0:
+	npc_1: Welcome to my humble abode
+	npc_1: Would be so kind as to help me with repairing the local park, all I need is $300
+	- Yes: Give $300
+		if PlayerManager.inventory["money"] > 300:
+			npc_1: Thanks this will go a long way 
+			[signal arg="charge_money"]
+		else:
+			npc_1: Come back when you have the proper funds
+	- Sorry, No
+elif PlayerManager.quest_lines["npc_1"] == 1:
+	npc_1: Thanks for your contributions
+	npc_1: Make sure to stop by the park and talk to my friend there
 [wait time="0.1"]
 [signal arg="stop_talking"]
+[end_timeline]

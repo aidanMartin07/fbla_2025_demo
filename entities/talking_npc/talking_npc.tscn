@@ -1,4 +1,4 @@
-[gd_scene load_steps=228 format=3 uid="uid://dixuj8cs4dp7e"]
+[gd_scene load_steps=235 format=3 uid="uid://dixuj8cs4dp7e"]
 
 [ext_resource type="Texture2D" uid="uid://cut06ucdgc3bd" path="res://assets/characters/Adam_32x32.png" id="1_6xec3"]
 [ext_resource type="Script" uid="uid://bivcjog4jbd03" path="res://entities/talking_npc/talking_npc.gd" id="1_7ebl5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b73o1ynqeboqq" path="res://entities/npc/npc_stats.gd" id="2_me8ok"]
 [ext_resource type="Texture2D" uid="uid://b8fd0vp6623ex" path="res://assets/characters/Amelia_32x32.png" id="3_me8ok"]
 [ext_resource type="Texture2D" uid="uid://cc6wtl7a4ibk1" path="res://assets/characters/Bob_32x32.png" id="4_e8pxj"]
+[ext_resource type="Texture2D" uid="uid://btonlrr3lpj52" path="res://assets/characters/construction.png" id="7_a6qyc"]
 [ext_resource type="Texture2D" uid="uid://csrw8m6u63rid" path="res://assets/characters/tophat.png" id="7_e8pxj"]
 [ext_resource type="Script" uid="uid://cqsqej0tdhnqj" path="res://entities/talking_npc/talking_animated_sprite.gd" id="7_me8ok"]
 
@@ -781,6 +782,30 @@ region = Rect2(320, 128, 32, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lv2ai"]
 atlas = ExtResource("4_e8pxj")
 region = Rect2(352, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg42a"]
+atlas = ExtResource("7_a6qyc")
+region = Rect2(576, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2mlf"]
+atlas = ExtResource("7_a6qyc")
+region = Rect2(608, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjhnb"]
+atlas = ExtResource("7_a6qyc")
+region = Rect2(640, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtpny"]
+atlas = ExtResource("7_a6qyc")
+region = Rect2(672, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mlma"]
+atlas = ExtResource("7_a6qyc")
+region = Rect2(704, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqoml"]
+atlas = ExtResource("7_a6qyc")
+region = Rect2(736, 64, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a6qyc"]
 atlas = ExtResource("7_e8pxj")
@@ -1616,6 +1641,29 @@ animations = [{
 "name": &"bob_walk_up",
 "speed": 5.0
 }, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg42a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2mlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjhnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtpny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mlma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqoml")
+}],
+"loop": true,
+"name": &"construction_idle_down",
+"speed": 5.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"default",
@@ -1724,7 +1772,7 @@ timeline_name = "npc_1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_duhht")
-animation = &"top_idle_left"
+animation = &"construction_idle_down"
 script = ExtResource("7_me8ok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
