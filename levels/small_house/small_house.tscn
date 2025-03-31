@@ -61,6 +61,7 @@ y_sort_enabled = true
 tile_set = ExtResource("1_je6u5")
 
 [node name="TownEntrance" type="Area2D" parent="."]
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TownEntrance"]
 position = Vector2(-79.5, 208)

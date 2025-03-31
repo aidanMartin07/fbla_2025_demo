@@ -51,6 +51,7 @@ tile_map_data = PackedByteArray("AAD4//n/AAAUABAAAAA=")
 tile_set = ExtResource("1_pm3e6")
 
 [node name="TownEntrance" type="Area2D" parent="."]
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TownEntrance"]
 position = Vector2(-96, 174)

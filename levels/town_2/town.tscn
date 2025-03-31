@@ -98,7 +98,7 @@ person_name = "alex"
 stats = SubResource("Resource_mbd1i")
 
 [node name="NPC2" parent="YSortObject" instance=ExtResource("2_muf71")]
-position = Vector2(596, 207)
+position = Vector2(993, 223)
 stats = SubResource("Resource_i4dma")
 
 [node name="NPC3" parent="YSortObject" instance=ExtResource("2_muf71")]
@@ -262,6 +262,7 @@ energy = 0.3
 shadow_enabled = true
 
 [node name="LampLight15" parent="Lights" instance=ExtResource("8_sjs6j")]
+process_priority = 1
 position = Vector2(753, 610)
 energy = 0.1
 shadow_enabled = true
@@ -309,7 +310,7 @@ energy = 0.1
 shadow_enabled = true
 
 [node name="LampLight24" parent="Lights" instance=ExtResource("8_sjs6j")]
-position = Vector2(369, 481)
+position = Vector2(371, 482)
 energy = 0.1
 shadow_enabled = true
 

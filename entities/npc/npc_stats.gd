@@ -26,7 +26,9 @@ var idle_nodes: Array[Vector2] = [
 
 #Positions NPCs should spawn from
 var spawn_nodes: Array[Vector2] = [
-	Vector2(-656, -48), #Subway Station Stairs
+	Vector2(-656, -48), #Top Left Subway Station Stairs
+	Vector2(-896, 544), #Lower Subway Station Stairs
+	Vector2(1440, -128) #Top Right Subway Station Stairs
 ]
 
 var bakery: Vector2 = Vector2(496,-224)
